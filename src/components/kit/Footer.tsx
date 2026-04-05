@@ -21,7 +21,7 @@ const DEFAULT_NAV = [
 const PRODUCTS_NAV = [
   { label: 'CV Creator',             href: 'https://cv-creator.no-code-hub.fr' },
   { label: 'CyberHub',               href: 'https://cyberhub.no-code-hub.fr' },
-  { label: 'Gestion Immobilière',    href: 'https://immo.no-code-hub.fr' },
+  { label: 'Gestion Immobilière',    href: 'https://gestion-immo.no-code-hub.fr' },
   { label: 'Video Analyzer',         href: 'https://video.no-code-hub.fr' },
 ]
 
@@ -90,7 +90,12 @@ export function Footer({
           <ul className="space-y-2">
             {PRODUCTS_NAV.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="text-sm hover:text-white transition-colors">
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm hover:text-white transition-colors"
+                >
                   {item.label}
                 </a>
               </li>

@@ -24,6 +24,10 @@ export const metadata: Metadata = {
     title: 'NO-CODE-HUB',
     description: 'Des outils no-code pour créer, analyser, organiser.',
   },
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

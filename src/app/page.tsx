@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Footer } from '@/components/kit/Footer'
+import { Logo } from '@/components/Logo'
 
 // ── Données produits ──────────────────────────────────────────────────────────
 
@@ -8,7 +9,7 @@ const PRODUCTS = [
     name: 'CV Creator',
     baseline: 'Créez votre CV professionnel',
     description: "Personnalisez et exportez votre CV en minutes grâce à des templates modernes et l'aide de l'IA.",
-    href: '#',
+    href: 'https://cv-creator.no-code-hub.fr',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -20,7 +21,7 @@ const PRODUCTS = [
     name: 'CyberHub',
     baseline: 'Gérez votre cybersécurité',
     description: 'Alertes, incidents, conformité et remédiation — tout en un pour les équipes IT.',
-    href: '#',
+    href: 'https://cyberhub.no-code-hub.fr',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -32,7 +33,7 @@ const PRODUCTS = [
     name: 'Gestion Immobilière',
     baseline: 'Gérez vos biens locatifs',
     description: 'Locataires, paiements, contrats et documents en une seule plateforme.',
-    href: '#',
+    href: 'https://gestion-immo.no-code-hub.fr',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -44,7 +45,7 @@ const PRODUCTS = [
     name: 'Video Analyzer',
     baseline: 'Analysez vos vidéos par IA',
     description: 'Transcription automatique, résumé et extraction de points clés depuis vos vidéos.',
-    href: '#',
+    href: 'https://video.no-code-hub.fr',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -99,15 +100,8 @@ function Navbar() {
     <nav className="sticky top-0 z-30 bg-slate-900/90 backdrop-blur-sm border-b border-slate-800">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center">
-            <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <span className="font-bold text-white text-lg tracking-tight group-hover:text-blue-400 transition-colors">
-            NO-CODE-HUB
-          </span>
+        <Link href="/" className="group">
+          <Logo textClassName="group-hover:text-blue-400 transition-colors" />
         </Link>
 
         {/* Navigation */}
@@ -224,6 +218,8 @@ export default function HomePage() {
 
                 <a
                   href={product.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1"
                 >
                   Découvrir
