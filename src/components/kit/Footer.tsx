@@ -19,10 +19,11 @@ const DEFAULT_NAV = [
 ]
 
 const PRODUCTS_NAV = [
-  { label: 'CV Creator',             href: 'https://cv-creator.no-code-hub.fr' },
-  { label: 'CyberHub',               href: 'https://cyberhub.no-code-hub.fr' },
-  { label: 'Gestion Immobilière',    href: 'https://gestion-immo.no-code-hub.fr' },
-  { label: 'Video Analyzer',         href: 'https://video.no-code-hub.fr' },
+  { label: 'WorldCup 2026',          href: 'https://worldcup.no-code-hub.fr', soon: false },
+  { label: 'CyberHub',               href: null, soon: true },
+  { label: 'CV Creator',             href: null, soon: true },
+  { label: 'Gestion Immobilière',    href: null, soon: true },
+  { label: 'Video Analyzer',         href: null, soon: true },
 ]
 
 const YEAR = new Date().getFullYear()
@@ -89,15 +90,24 @@ export function Footer({
           <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-4">Produits</p>
           <ul className="space-y-2">
             {PRODUCTS_NAV.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm hover:text-white transition-colors"
-                >
-                  {item.label}
-                </a>
+              <li key={item.label} className="flex items-center gap-2">
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm hover:text-white transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <span className="text-sm text-gray-600 flex items-center gap-1.5">
+                    {item.label}
+                    <span className="text-xs bg-gray-800 text-gray-500 px-1.5 py-0.5 rounded font-medium">
+                      bientôt
+                    </span>
+                  </span>
+                )}
               </li>
             ))}
           </ul>

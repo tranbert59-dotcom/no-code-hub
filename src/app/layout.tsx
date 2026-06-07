@@ -8,21 +8,21 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'NO-CODE-HUB — Outils intelligents pour votre activité',
-    template: '%s | NO-CODE-HUB',
+    default: 'Bertrand Cabanes — Product Builder · NO-CODE-HUB',
+    template: '%s | Bertrand Cabanes',
   },
-  description: "NO-CODE-HUB regroupe des outils intelligents pour créer, automatiser et sécuriser vos processus métiers grâce à l'IA et au no-code.",
+  description: "Expert ERP/AS400 reconverti au développement numérique. Je construis des outils SaaS avec FastAPI, Next.js et l'IA. Découvrez NO-CODE-HUB.",
   openGraph: {
-    title: 'NO-CODE-HUB — Outils intelligents pour votre activité',
-    description: "NO-CODE-HUB regroupe des outils intelligents pour créer, automatiser et sécuriser vos processus métiers grâce à l'IA et au no-code.",
+    title: 'Bertrand Cabanes — Product Builder · NO-CODE-HUB',
+    description: "Expert ERP/AS400 reconverti au développement numérique. Je construis des outils SaaS avec FastAPI, Next.js et l'IA.",
     siteName: 'NO-CODE-HUB',
     locale: 'fr_FR',
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: 'NO-CODE-HUB',
-    description: 'Des outils no-code pour créer, analyser, organiser.',
+    title: 'Bertrand Cabanes — Product Builder',
+    description: "Expert ERP reconverti. Je construis des SaaS avec FastAPI, Next.js et l'IA.",
   },
   icons: {
     icon: '/favicon.svg',
