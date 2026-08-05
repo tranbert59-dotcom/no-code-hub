@@ -6,9 +6,9 @@ interface LogoProps {
   size?: number
 }
 
-export function Logo({ className = '', textClassName = '', size = 32 }: LogoProps) {
+export function Logo({ className = '', textClassName = '', size = 40 }: LogoProps) {
   return (
-    <span className={`flex items-center gap-2 ${className}`}>
+    <span className={`flex items-center gap-3 ${className}`}>
       <Image
         src="/logo.png"
         alt="NO-CODE-HUB logo"
@@ -17,7 +17,7 @@ export function Logo({ className = '', textClassName = '', size = 32 }: LogoProp
         className="rounded-lg"
         priority
       />
-      <span className={`font-bold text-white text-lg tracking-tight ${textClassName}`}>
+      <span className={`font-bold text-white text-xl tracking-tight ${textClassName}`}>
         NO-CODE-HUB
       </span>
     </span>

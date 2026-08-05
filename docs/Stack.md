@@ -6,4 +6,4 @@
 | Language | TypeScript | 5 |
 | Style | Tailwind CSS | 3 |
 | Kit web | cv-creator/kit | workspace |
-| Port | 3001 | local |
+| Port | 3005 | local |

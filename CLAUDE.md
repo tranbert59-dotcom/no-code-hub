@@ -2,7 +2,7 @@
 
 ## Stack
 - Next.js 14 App Router + TypeScript + Tailwind CSS
-- Port : 3001
+- Port : 3005
 - Kit web : src/components/kit/ (copié depuis cv-creator)
 
 ## Démarrage
