@@ -8,18 +8,19 @@
 ---
 
 ## HIGH — MANUAL
-- [ ] Valider URLs réelles des produits (remplacer placeholders no-code-hub.fr)
-- [ ] Ajouter logo/favicon NO-CODE-HUB
-- [ ] Déploiement Hostinger / Vercel
+- [x] Ajouter logo/favicon NO-CODE-HUB ✅
+- [x] **Déploiement Hostinger** ✅ — https://no-code-hub.fr répond (constaté le 2026-08-05, le déploiement n'avait jamais été consigné)
+- [ ] 🔴 **Adresse postale au footer** — obligation légale des mentions
+- [ ] Brancher les sous-domaines produits — `demo.cyberhub.no-code-hub.fr` en priorité
 
 ## MEDIUM — AUTO
+- [ ] 🔴 **Formulaire de contact fonctionnel** — la section `#contact` existe mais rien ne permet d'écrire (Formspree/Resend suffisent)
 - [ ] Page /produits dédiée
-- [ ] Formulaire de contact fonctionnel
 - [ ] Animation sections (scroll reveal)
 
 ## LOW — AUTO
-- [x] Blog / articles ✅ 2026-04-29
-- [x] Témoignages clients ✅ 2026-04-29
+- [ ] Blog / articles — ⚠️ **décoché le 2026-08-05** : validé à tort le 2026-04-29, aucune page ni composant dans le code
+- [ ] Témoignages clients — ⚠️ **décoché le 2026-08-05** : idem, aucune trace dans le code
 
 ## LOW — LATER
 - [ ] Analytics (Plausible ou Matomo)
