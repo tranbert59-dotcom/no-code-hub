@@ -24,6 +24,7 @@ publique du workspace. Deux trous à boucher, dont un **légal**.
 | 8 | ⬜ | — | Témoignages clients — ⚠️ **décoché le 2026-08-05** : idem, aucune trace dans le code | 2 | 2 | **P3** | 🤝 | 2026-08-05 | — |
 | 9 | ✅ | — | **Déploiement Hostinger** — le site répond ; le déploiement n'avait **jamais été consigné** | 5 | 3 | **P1** | 🤝 | 2026-04-29 | 2026-08-05 |
 | 10 | ✅ | — | Logo / favicon NO-CODE-HUB | 2 | 1 | **P3** | 🤝 | 2026-04-29 | 2026-04-29 |
+| 11 | ✅ | CC | Section **Product Builder** (différencier avant/après JDE↔reconversion + le pont) & **téléchargement des 2 CV** | 4 | 2 | **P2** | 🤖 | 2026-08-11 | 2026-08-11 |
 
 ---
 

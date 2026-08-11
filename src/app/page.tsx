@@ -49,6 +49,45 @@ const JDE_MODULES = [
   'PRMS · CA-PRMS',
 ]
 
+const BUILDER_STACK = [
+  'Python · FastAPI',
+  'Next.js · TypeScript',
+  'PostgreSQL · Redis',
+  'Docker · nginx',
+  'Claude AI · Whisper',
+  'VPS · CI/CD',
+]
+
+const BUILDER_CERTS = [
+  { label: 'Cybersécurité', issuer: 'Google · 2024 — 8 modules (83–96 %)' },
+  { label: 'Project Management', issuer: 'Google · 2025' },
+  { label: 'Product Builder', issuer: 'Uncode School — certification à passer en 2026' },
+]
+
+// Le pont entre les deux mondes : ce que chacun apporte à l'autre.
+const BRIDGE = [
+  {
+    icon: '🏛️',
+    title: "L'ERP nourrit mes produits",
+    points: [
+      'Rigueur acquise sur 30 ans de systèmes financiers critiques',
+      'Compréhension métier réelle : finance, distribution, RGPD',
+      'Culture de la donnée, du test et de la documentation',
+      'Sens du support et de la conduite du changement',
+    ],
+  },
+  {
+    icon: '🚀',
+    title: 'Le Product Building modernise l’ERP',
+    points: [
+      'IA et automatisation autour du legacy AS400',
+      'Portails web modernes connectés aux systèmes existants',
+      'Déploiement rapide, en production, à coût maîtrisé',
+      'MVP livrés seul, de la conception à la mise en ligne',
+    ],
+  },
+]
+
 const PROJECTS = [
   {
     name: 'WorldCup 2026',
@@ -120,6 +159,7 @@ function Navbar() {
         <div className="hidden sm:flex items-center gap-6 text-sm text-gray-400">
           <a href="#parcours" className="hover:text-white transition-colors">Parcours</a>
           <a href="#erp" className="hover:text-amber-400 transition-colors font-medium text-amber-500">JDE · AS400</a>
+          <a href="#builder" className="hover:text-blue-300 transition-colors font-medium text-blue-400">Product Builder</a>
           <a href="#projets" className="hover:text-white transition-colors">Projets</a>
           <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           <a
@@ -148,48 +188,61 @@ export default function HomePage() {
 
       {/* ── HERO ── */}
       <section
-        className="relative flex flex-col items-center justify-center text-center px-6 py-32 sm:py-44"
+        className="relative flex flex-col items-center justify-center text-center lg:text-left px-6 py-24 sm:py-32"
         style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}
       >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-blue-600/10 blur-3xl" />
         </div>
 
-        <div className="relative max-w-3xl">
-          <div className="flex justify-center mb-8">
-            <Logo size={120} textClassName="text-3xl" />
+        <div className="relative max-w-6xl w-full grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          {/* Colonne texte */}
+          <div>
+            <span className="inline-block mb-5 text-xs font-semibold uppercase tracking-widest text-blue-400 bg-blue-900/40 px-4 py-1.5 rounded-full">
+              Product Builder · NO-CODE-HUB
+            </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
+              Bertrand Cabanes
+            </h1>
+            <p className="text-xl sm:text-2xl text-blue-300 font-medium mb-6">
+              De l&apos;ERP AS400 à l&apos;IA — je construis des outils qui tournent en production.
+            </p>
+            <p className="text-base sm:text-lg text-gray-400 leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
+              30 ans d&apos;expertise en systèmes d&apos;information (JD Edwards, AS400), reconverti en Product Builder —
+              no-code, automatisation et IA. Je conçois et j&apos;assemble des SaaS utiles pour les professionnels,
+              jusqu&apos;à la mise en production.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a
+                href="https://www.linkedin.com/in/bertrand-cabanes-1965b211/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-colors shadow-lg shadow-blue-900/40"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+                Me suivre sur LinkedIn
+              </a>
+              <a
+                href="#projets"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white font-semibold text-sm transition-colors"
+              >
+                Voir mes projets
+              </a>
+            </div>
           </div>
-          <span className="inline-block mb-5 text-xs font-semibold uppercase tracking-widest text-blue-400 bg-blue-900/40 px-4 py-1.5 rounded-full">
-            Product Builder · NO-CODE-HUB
-          </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
-            Bertrand Cabanes
-          </h1>
-          <p className="text-xl sm:text-2xl text-blue-300 font-medium mb-6">
-            De l&apos;ERP AS400 à l&apos;IA — je construis des outils qui tournent en production.
-          </p>
-          <p className="text-base sm:text-lg text-gray-400 leading-relaxed mb-10 max-w-2xl mx-auto">
-            30 ans d&apos;expertise en systèmes d&apos;information (JD Edwards, AS400), reconverti en développeur
-            full-stack et entrepreneur numérique. Je crée des SaaS utiles pour les professionnels.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://www.linkedin.com/in/bertrand-cabanes-1965b211/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-colors shadow-lg shadow-blue-900/40"
-            >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
-              Me suivre sur LinkedIn
-            </a>
-            <a
-              href="#projets"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white font-semibold text-sm transition-colors"
-            >
-              Voir mes projets
-            </a>
+
+          {/* Colonne illustration — de l'ERP vers l'avenir IA / no-code */}
+          <div className="relative">
+            <div className="absolute -inset-4 bg-blue-500/20 blur-2xl rounded-3xl" aria-hidden="true" />
+            <img
+              src="/img/hero-nocode-hub.webp"
+              alt="Illustration : de l'ERP AS400 vers l'avenir — IA, no-code et automatisation"
+              width={1400}
+              height={933}
+              className="relative w-full h-auto rounded-2xl shadow-2xl shadow-blue-950/50 ring-1 ring-white/10"
+            />
           </div>
         </div>
       </section>
@@ -338,18 +391,133 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
+                href="/cv/Bertrand_Cabanes_CV_JDE_AS400.pdf"
+                download
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm transition-colors"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Télécharger mon CV JDE / AS400 (PDF)
+              </a>
+              <a
                 href="https://www.linkedin.com/in/bertrand-cabanes-1965b211/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-slate-600 hover:border-slate-400 text-gray-300 hover:text-white font-semibold text-sm transition-colors"
               >
                 Voir mon profil LinkedIn complet
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRODUCT BUILDER / NO-CODE (l'après) ── */}
+      <section id="builder" className="py-20 px-6 bg-gradient-to-b from-white to-blue-50">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="inline-block mb-4 text-xs font-semibold uppercase tracking-widest text-blue-600 bg-blue-100 px-4 py-1.5 rounded-full">
+              Reconversion · Product Builder
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+              De l&apos;ERP à l&apos;IA — Product Builder
+            </h2>
+            <p className="text-gray-500 text-sm max-w-xl mx-auto">
+              Depuis 2023, je conçois, automatise et déploie des produits numériques utiles — en orchestrant
+              no-code, automatisation, IA et code quand il le faut, de l&apos;idée à la mise en production sur mon propre serveur.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {/* Stack & compétences */}
+            <div className="bg-white rounded-2xl p-6 border border-blue-100 shadow-sm">
+              <h3 className="text-gray-900 font-bold mb-4 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center text-sm">⌨</span>
+                Stack & compétences
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {BUILDER_STACK.map((s) => (
+                  <span key={s} className="text-xs bg-blue-50 text-blue-700 px-3 py-1.5 rounded-lg border border-blue-100 font-mono">
+                    {s}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-5 pt-5 border-t border-gray-100">
+                <p className="text-xs text-gray-400 mb-2 font-semibold uppercase tracking-wide">Approche</p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  MVP d&apos;abord, sécurité non-négociable, documentation systématique —
+                  la méthode d&apos;un ancien des systèmes critiques appliquée au web.
+                </p>
+              </div>
+            </div>
+
+            {/* Certifications & formation */}
+            <div className="bg-white rounded-2xl p-6 border border-blue-100 shadow-sm">
+              <h3 className="text-gray-900 font-bold mb-4 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center text-sm">🎓</span>
+                Certifications & formation
+              </h3>
+              <div className="space-y-3">
+                {BUILDER_CERTS.map((c) => (
+                  <div key={c.label} className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" />
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900">{c.label}</p>
+                      <p className="text-xs text-gray-500">{c.issuer}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Le pont entre les deux mondes */}
+          <div className="bg-white rounded-2xl p-6 border border-blue-100 shadow-sm mb-8">
+            <h3 className="text-gray-900 font-bold mb-2 text-center">Deux mondes qui se nourrissent</h3>
+            <p className="text-gray-500 text-sm text-center mb-6 max-w-2xl mx-auto">
+              Mon passé ERP n&apos;est pas derrière moi : c&apos;est ce qui rend mes produits fiables.
+              Et le développement moderne est ce qui peut moderniser l&apos;ERP.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {BRIDGE.map((col) => (
+                <div key={col.title} className="bg-blue-50/60 rounded-xl p-5 border border-blue-100">
+                  <div className="text-2xl mb-2">{col.icon}</div>
+                  <h4 className="text-gray-900 font-semibold text-sm mb-3">{col.title}</h4>
+                  <ul className="space-y-2">
+                    {col.points.map((p) => (
+                      <li key={p} className="flex items-start gap-2 text-xs text-gray-600 leading-relaxed">
+                        <span className="text-blue-500 mt-0.5">→</span>
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA reconversion + CV */}
+          <div className="text-center">
+            <p className="text-gray-500 text-sm mb-5">
+              Intéressé par mon profil de Product Builder / automatisation ?
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="mailto:bertrand.cabanes.59@gmail.com"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-slate-600 hover:border-slate-400 text-gray-300 hover:text-white font-semibold text-sm transition-colors"
+                href="/cv/Bertrand_Cabanes_CV_Reconversion.pdf"
+                download
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-colors shadow-lg shadow-blue-900/20"
               >
-                bertrand.cabanes.59@gmail.com
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Télécharger mon CV reconversion (PDF)
+              </a>
+              <a
+                href="#projets"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-blue-200 hover:border-blue-400 text-blue-700 font-semibold text-sm transition-colors"
+              >
+                Voir ce que je construis
               </a>
             </div>
           </div>
@@ -449,7 +617,7 @@ export default function HomePage() {
             Vous avez un projet ? Parlons-en.
           </h2>
           <p className="text-blue-100 text-sm mb-10 leading-relaxed">
-            Expert ERP disponible pour des missions de consulting, développement sur mesure
+            Expert ERP disponible pour des missions de consulting, automatisation &amp; product building
             ou collaboration sur des projets SaaS.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -465,10 +633,10 @@ export default function HomePage() {
               Me contacter sur LinkedIn
             </a>
             <a
-              href="mailto:bertrand.cabanes.59@gmail.com"
+              href="mailto:contact@no-code-hub.fr"
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl border border-blue-400 hover:border-white text-white font-semibold text-sm transition-colors"
             >
-              bertrand.cabanes.59@gmail.com
+              contact@no-code-hub.fr
             </a>
           </div>
         </div>
