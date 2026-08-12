@@ -17,7 +17,7 @@ export function Logo({ className = '', textClassName = '', size = 40 }: LogoProp
         className="rounded-lg"
         priority
       />
-      <span className={`font-bold text-white text-xl tracking-tight ${textClassName}`}>
+      <span className={`font-bold text-fg text-xl tracking-tight ${textClassName}`}>
         NO-CODE-HUB
       </span>
     </span>

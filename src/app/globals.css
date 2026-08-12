@@ -6,7 +6,57 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+   Tokens sémantiques — pilotent tout le site (clair / sombre + accent).
+   Les couleurs sont stockées en canaux RGB « r g b » pour permettre
+   l'opacité Tailwind : rgb(var(--surface) / <alpha-value>) → bg-surface/50.
+   ────────────────────────────────────────────────────────────────────────── */
+
 :root {
-  --color-primary: #2563eb;
-  --color-dark: #0f172a;
+  /* Surfaces & texte — mode CLAIR (défaut) */
+  --surface:    255 255 255;   /* fond de page              */
+  --surface-2:  248 250 252;   /* sections alternées        */
+  --surface-3:  241 245 249;   /* survols / états           */
+  --card:       255 255 255;   /* cartes surélevées         */
+  --card-2:     241 245 249;   /* puces / éléments imbriqués */
+  --fg:          15  23  42;   /* texte principal           */
+  --fg-muted:    71  85 105;   /* texte secondaire          */
+  --fg-subtle:  148 163 184;   /* texte tertiaire           */
+  --line:       226 232 240;   /* bordures                  */
+
+  /* Accent — défaut BLEU (surchargé par [data-accent="…"]) */
+  --accent:        37  99 235;
+  --accent-hover:  29  78 216;
+  --accent-fg:    255 255 255;
+}
+
+.dark {
+  --surface:      2   6  23;   /* slate-950 */
+  --surface-2:   15  23  42;   /* slate-900 */
+  --surface-3:   30  41  59;   /* slate-800 */
+  --card:        30  41  59;   /* slate-800 */
+  --card-2:      51  65  85;   /* slate-700 */
+  --fg:         241 245 249;
+  --fg-muted:   148 163 184;
+  --fg-subtle:  100 116 139;
+  --line:        30  41  59;
+}
+
+/* ── Palettes d'accent (indépendantes du thème) ── */
+[data-accent="blue"]    { --accent:  37  99 235; --accent-hover:  29  78 216; --accent-fg: 255 255 255; }
+[data-accent="emerald"] { --accent:   5 150 105; --accent-hover:   4 120  87; --accent-fg: 255 255 255; }
+[data-accent="violet"]  { --accent: 124  58 237; --accent-hover: 109  40 217; --accent-fg: 255 255 255; }
+[data-accent="amber"]   { --accent: 217 119   6; --accent-hover: 180  83   9; --accent-fg: 255 255 255; }
+[data-accent="rose"]    { --accent: 225  29  72; --accent-hover: 190  18  60; --accent-fg: 255 255 255; }
+[data-accent="cyan"]    { --accent:   8 145 178; --accent-hover:  14 116 144; --accent-fg: 255 255 255; }
+
+/* Confort visuel au changement de thème */
+body {
+  background: rgb(var(--surface));
+  color: rgb(var(--fg));
+}
+
+.theme-transition,
+.theme-transition * {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease;
 }

@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { CookieBanner } from '@/components/kit/CookieBanner'
 import { ChatWidget } from '@/components/kit/ChatWidget'
+import { ThemeProvider, NO_FLASH_SCRIPT } from '@/lib/theme'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,15 +33,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: NO_FLASH_SCRIPT }} />
+      </head>
       <body className={inter.className}>
-        {children}
-        <CookieBanner />
-        <ChatWidget
-          siteName="NO-CODE-HUB"
-          greeting="Bonjour ! Je suis là pour vous aider à découvrir les outils NO-CODE-HUB. Que cherchez-vous ?"
-          email="contact@no-code-hub.fr"
-        />
+        <ThemeProvider>
+          {children}
+          <CookieBanner />
+          <ChatWidget
+            siteName="NO-CODE-HUB"
+            greeting="Bonjour ! Je suis là pour vous aider à découvrir les outils NO-CODE-HUB. Que cherchez-vous ?"
+            email="contact@no-code-hub.fr"
+          />
+        </ThemeProvider>
       </body>
     </html>
   )
