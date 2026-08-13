@@ -100,8 +100,22 @@ export const DICT = {
       certs: [
         { label: 'Cybersécurité', issuer: 'Google · 2024 — 8 modules (83–96 %)' },
         { label: 'Project Management', issuer: 'Google · 2025' },
-        { label: 'Product Builder', issuer: 'Uncode School — certification à passer en 2026' },
+        { label: 'Product Builder', issuer: 'UnCode School · examen 2026 — résultat en attente' },
       ],
+      nocode: {
+        title: 'Compétences Product Builder — UnCode School',
+        intro:
+          'Formé au métier de Product Builder à l’UnCode School : concevoir et livrer une application métier complète en no-code / low-code, du cadrage à la mise en production.',
+        groups: [
+          { cat: 'Cadrage & modélisation', tools: ['Note de cadrage', 'BPMN', 'Architecture', 'ERD', 'Notion'] },
+          { cat: 'No-code — bases & interfaces', tools: ['Airtable', 'Softr', 'Webflow', 'Figma'] },
+          { cat: 'Automatisation & API', tools: ['Make', 'n8n', 'APIs', 'Automatisation Airtable'] },
+          { cat: 'IA & production', tools: ['Claude Code', 'IA / LLM', 'Vibe coding', 'Loom'] },
+        ],
+        coachTitle: 'Cas clients à la demande',
+        coachDesc:
+          'Grâce à ma formation, j’analyse et traite des cas clients à la demande sur toute la chaîne — cadrage, base Airtable, interface Softr, automatisations Make / n8n — en conditions réelles de mission.',
+      },
       bridgeTitle: 'Deux mondes qui se nourrissent',
       bridgeSubtitle:
         'Mon passé ERP n’est pas derrière moi : c’est ce qui rend mes produits fiables. Et le développement moderne est ce qui peut moderniser l’ERP.',
@@ -130,6 +144,23 @@ export const DICT = {
       ctaText: 'Intéressé par mon profil de Product Builder / automatisation ?',
       ctaDownload: 'Télécharger mon CV reconversion (PDF)',
       ctaProjects: 'Voir ce que je construis',
+    },
+    service: {
+      badge: 'Prestation · à la demande',
+      title: 'Un problème métier à résoudre ?',
+      subtitle:
+        'Décrivez votre besoin et je le transforme en solution no-code : base de données, interface et automatisations. Une prestation cadrée, de l’analyse à la livraison.',
+      steps: [
+        { n: '1', title: 'Vous réservez', desc: 'Vous réglez l’analyse en ligne — le point de départ de la mission.' },
+        { n: '2', title: 'Vous décrivez', desc: 'Vous recevez un modèle Notion et un formulaire à compléter pour cadrer votre problème.' },
+        { n: '3', title: 'Je livre', desc: 'Je vous propose une solution : cadrage, maquette et plan de mise en œuvre no-code.' },
+      ],
+      paid: 'Prestation payante',
+      ctaPay: 'Réserver mon analyse',
+      soon: 'Paiement en ligne bientôt disponible — écrivez-moi en attendant.',
+      notion: 'Modèle Notion',
+      form: 'Formulaire',
+      soonTag: 'bientôt',
     },
     projects: {
       title: 'Ce que je construis',
@@ -257,8 +288,22 @@ export const DICT = {
       certs: [
         { label: 'Cybersecurity', issuer: 'Google · 2024 — 8 modules (83–96%)' },
         { label: 'Project Management', issuer: 'Google · 2025' },
-        { label: 'Product Builder', issuer: 'Uncode School — certification planned for 2026' },
+        { label: 'Product Builder', issuer: 'UnCode School · 2026 exam — result pending' },
       ],
+      nocode: {
+        title: 'Product Builder skills — UnCode School',
+        intro:
+          'Trained as a Product Builder at UnCode School: designing and shipping a complete business application in no-code / low-code, from scoping to production.',
+        groups: [
+          { cat: 'Scoping & modeling', tools: ['Scoping note', 'BPMN', 'Architecture', 'ERD', 'Notion'] },
+          { cat: 'No-code — databases & interfaces', tools: ['Airtable', 'Softr', 'Webflow', 'Figma'] },
+          { cat: 'Automation & API', tools: ['Make', 'n8n', 'APIs', 'Airtable automation'] },
+          { cat: 'AI & delivery', tools: ['Claude Code', 'AI / LLM', 'Vibe coding', 'Loom'] },
+        ],
+        coachTitle: 'Client cases on demand',
+        coachDesc:
+          'Thanks to my training, I analyze and handle client cases on demand across the full chain — scoping, Airtable database, Softr interface, Make / n8n automations — in real assignment conditions.',
+      },
       bridgeTitle: 'Two worlds feeding each other',
       bridgeSubtitle:
         'My ERP past isn’t behind me: it’s what makes my products reliable. And modern development is what can modernize ERP.',
@@ -287,6 +332,23 @@ export const DICT = {
       ctaText: 'Interested in my Product Builder / automation profile?',
       ctaDownload: 'Download my career-change résumé (PDF)',
       ctaProjects: 'See what I build',
+    },
+    service: {
+      badge: 'Service · on demand',
+      title: 'A business problem to solve?',
+      subtitle:
+        'Describe your need and I turn it into a no-code solution: database, interface and automations. A scoped engagement, from analysis to delivery.',
+      steps: [
+        { n: '1', title: 'You book', desc: 'You pay for the analysis online — the starting point of the engagement.' },
+        { n: '2', title: 'You describe', desc: 'You receive a Notion template and a form to fill in and frame your problem.' },
+        { n: '3', title: 'I deliver', desc: 'I propose a solution: scoping, mockup and a no-code implementation plan.' },
+      ],
+      paid: 'Paid service',
+      ctaPay: 'Book my analysis',
+      soon: 'Online payment coming soon — email me in the meantime.',
+      notion: 'Notion template',
+      form: 'Form',
+      soonTag: 'soon',
     },
     projects: {
       title: 'What I build',

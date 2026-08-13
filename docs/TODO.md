@@ -26,6 +26,9 @@ publique du workspace. Deux trous à boucher, dont un **légal**.
 | 10 | ✅ | — | Logo / favicon NO-CODE-HUB | 2 | 1 | **P3** | 🤝 | 2026-04-29 | 2026-04-29 |
 | 11 | ✅ | CC | Section **Product Builder** (différencier avant/après JDE↔reconversion + le pont) & **téléchargement des 2 CV** | 4 | 2 | **P2** | 🤖 | 2026-08-11 | 2026-08-11 |
 | 12 | ✅ | CC | **Thème clair/sombre + FR/EN + choix de couleur d'accent** — socle tokens sémantiques CSS, `ThemeProvider` (persistance localStorage + anti-flash), dictionnaire FR/EN, contrôles dans la navbar (6 pastilles) | 4 | 4 | **P2** | 🤖 | 2026-08-12 | 2026-08-12 |
+| 13 | ✅ | CC | **Compétences Product Builder — UnCode School** — bloc dans `#builder` : outils no-code regroupés par étape (cadrage/BPMN/ERD · Airtable/Softr/Webflow/Figma · Make/n8n/API · Claude Code/IA/vibe coding/Loom/Notion) + encart « Cas clients à la demande » (neutre, sans mention de coach). Bilingue. | 4 | 2 | **P2** | 🤖 | 2026-08-13 | 2026-08-13 |
+| 14 | ✅ | CC | **Section prestation payante `#service`** — « Un problème à résoudre ? » : 3 étapes + CTA paiement + boutons Modèle Notion / Formulaire. Bloc Compétences remonté avant Stack/Certif. Config `SERVICE` centralisée (URLs à brancher). Bilingue. | 4 | 3 | **P2** | 🤖 | 2026-08-13 | 2026-08-13 |
+| 15 | ⬜ | — | **Brancher la prestation payante** — fournir les 3 URL (`SERVICE` dans `page.tsx`) : lien de paiement (Stripe Payment Link / Gumroad), modèle Notion vierge, formulaire (Tally/Typeform/Airtable). Sans elles : CTA en repli e-mail + boutons « bientôt ». | 5 | 2 | **P1** | 🙋 | 2026-08-13 | — |
 
 ---
 
