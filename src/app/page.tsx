@@ -4,6 +4,7 @@ import { Footer } from '@/components/kit/Footer'
 import { Navbar } from '@/components/Navbar'
 import { useTheme } from '@/lib/theme'
 import { useDict } from '@/lib/i18n'
+import ContactForm from '@/components/ContactForm'
 
 const LINKEDIN_URL = 'https://www.linkedin.com/in/bertrand-cabanes-1965b211/'
 
@@ -598,6 +599,8 @@ export default function HomePage() {
         <div className="max-w-xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-accent-fg mb-4">{t.contact.title}</h2>
           <p className="text-accent-fg/80 text-sm mb-10 leading-relaxed">{t.contact.subtitle}</p>
+          <ContactForm />
+          <p className="text-accent-fg/60 text-xs my-6 uppercase tracking-wider">{t.contact.form.or}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={LINKEDIN_URL}

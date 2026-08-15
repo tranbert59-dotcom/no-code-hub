@@ -185,6 +185,17 @@ export const DICT = {
       subtitle:
         'Expert ERP disponible pour des missions de consulting, automatisation & product building ou collaboration sur des projets SaaS.',
       ctaLinkedin: 'Me contacter sur LinkedIn',
+      form: {
+        name: 'Votre nom',
+        email: 'Votre email',
+        message: 'Votre message',
+        send: 'Envoyer',
+        sending: 'Envoi…',
+        ok: 'Message envoyé — je vous réponds sous 48 h.',
+        error: 'Envoi impossible pour le moment. Écrivez-moi directement à contact@no-code-hub.fr.',
+        invalid: 'Merci de renseigner un nom, un email valide et un message (10 caractères minimum).',
+        or: 'ou',
+      },
     },
     footer: {
       baseline: 'Des outils no-code pour créer, analyser, organiser.',
@@ -373,6 +384,17 @@ export const DICT = {
       subtitle:
         'ERP expert available for consulting, automation & product-building assignments, or collaboration on SaaS projects.',
       ctaLinkedin: 'Contact me on LinkedIn',
+      form: {
+        name: 'Your name',
+        email: 'Your email',
+        message: 'Your message',
+        send: 'Send',
+        sending: 'Sending…',
+        ok: 'Message sent — I’ll reply within 48 h.',
+        error: 'Sending failed for now. Email me directly at contact@no-code-hub.fr.',
+        invalid: 'Please provide a name, a valid email and a message (10 characters minimum).',
+        or: 'or',
+      },
     },
     footer: {
       baseline: 'No-code tools to create, analyze, organize.',
