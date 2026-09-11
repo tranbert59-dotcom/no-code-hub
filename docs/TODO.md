@@ -14,7 +14,7 @@ publique du workspace. Deux trous à boucher, dont un **légal**.
 
 | # | État | Par | Tâche | I | E | P | Mode | Créée | Terminée |
 |--:|:-:|:-:|---|:-:|:-:|:-:|:-:|---|---|
-| 1 | ✅ | — | **Formulaire de contact fonctionnel** — `ContactForm` (nom/email/message, FR/EN, honeypot) + `POST /api/contact` (nodemailer SMTP, 5 envois/10 min/IP, 503 explicite sans SMTP → le site propose le mail direct). Vérifié en réel : 422/200/503. **🙋 poser `CONTACT_SMTP_*` sur le VPS** (`.env.example` documenté) puis déployer | 5 | 2 | **P1** | 🤖 | 2026-08-05 | 2026-08-16 |
+| 1 | ✅ | CC | **Formulaire de contact fonctionnel** — `ContactForm` (nom/email/message, FR/EN, honeypot) + `POST /api/contact` (nodemailer SMTP, 5 envois/10 min/IP, 503 explicite sans SMTP → le site propose le mail direct). **✅ EN PROD le 2026-09-11** : push du commit `d5ab2a2` (jamais poussé), déploiement VPS, SMTP Hostinger `contact@no-code-hub.fr` (`.env.local`), envoi vérifié `{ok:true}` HTTP 200 | 5 | 2 | **P1** | 🤖 | 2026-08-05 | 2026-09-11 |
 | 2 | ⬜ | — | **Adresse postale au footer** — obligation légale des mentions | 4 | 1 | **P1** | 🤝 | 2026-08-05 | — |
 | 3 | ⬜ | — | Brancher les sous-domaines produits — `demo.cyberhub.no-code-hub.fr` en priorité | 5 | 3 | **P1** | 🤝 | 2026-08-05 | — |
 | 4 | ⬜ | — | Page `/produits` dédiée | 3 | 2 | **P2** | 🤖 | 2026-04-29 | — |
