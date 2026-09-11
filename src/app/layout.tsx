@@ -8,6 +8,7 @@ import { ThemeProvider, NO_FLASH_SCRIPT } from '@/lib/theme'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://no-code-hub.fr'),
   title: {
     default: 'Bertrand Cabanes — Product Builder · NO-CODE-HUB',
     template: '%s | Bertrand Cabanes',
