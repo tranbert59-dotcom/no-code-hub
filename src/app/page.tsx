@@ -52,6 +52,30 @@ const PROJECTS_META = [
     ),
   },
   {
+    name: 'CV Creator',
+    href: 'https://cv.no-code-hub.fr',
+    status: 'test' as const,
+    stack: ['Express', 'Next.js 14', 'Prisma', 'Claude AI'],
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Élection 2027',
+    href: 'https://civic.no-code-hub.fr',
+    status: 'test' as const,
+    stack: ['FastAPI', 'Next.js 15', 'Leaflet'],
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+          d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" />
+      </svg>
+    ),
+  },
+  {
     name: 'CyberHub SaaS',
     href: null,
     status: 'soon' as const,
@@ -60,18 +84,6 @@ const PROJECTS_META = [
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
           d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'CV Creator',
-    href: null,
-    status: 'soon' as const,
-    stack: ['Express', 'Next.js 14', 'Prisma', 'Claude AI'],
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
       </svg>
     ),
   },
@@ -518,24 +530,35 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {PROJECTS_META.map((project, i) => {
               const copy = t.projects.items[i]
+              const isLive = project.status === 'live'
+              const isTest = project.status === 'test'
               return (
                 <div
                   key={project.name}
                   className={`group bg-card border rounded-2xl p-6 shadow-sm flex flex-col transition-all
-                    ${project.status === 'live'
+                    ${isLive
                       ? 'border-green-500/30 hover:border-green-500/60 hover:shadow-md'
-                      : 'border-line hover:border-accent/40 hover:shadow-sm opacity-90'
+                      : isTest
+                        ? 'border-amber-500/30 hover:border-amber-500/60 hover:shadow-md'
+                        : 'border-line hover:border-accent/40 hover:shadow-sm opacity-90'
                     }`}
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center
-                      ${project.status === 'live' ? 'bg-green-500/10 text-green-600 dark:text-green-400' : 'bg-accent/10 text-accent'}`}>
+                      ${isLive ? 'bg-green-500/10 text-green-600 dark:text-green-400'
+                        : isTest ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400'
+                        : 'bg-accent/10 text-accent'}`}>
                       {project.icon}
                     </div>
-                    {project.status === 'live' ? (
+                    {isLive ? (
                       <span className="flex items-center gap-1.5 text-xs font-semibold text-green-700 dark:text-green-400 bg-green-500/10 px-3 py-1 rounded-full">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                         {t.projects.live}
+                      </span>
+                    ) : isTest ? (
+                      <span className="flex items-center gap-1.5 text-xs font-semibold text-amber-700 dark:text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full">
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                        {t.projects.test}
                       </span>
                     ) : (
                       <span className="text-xs font-medium text-fg-subtle bg-card-2/60 px-3 py-1 rounded-full">
@@ -558,17 +581,30 @@ export default function HomePage() {
                   </div>
 
                   {project.href ? (
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-green-700 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300 transition-colors"
-                    >
-                      {t.projects.view}
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
+                    <div className="flex items-center justify-between gap-2">
+                      <a
+                        href={project.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-1.5 text-sm font-semibold transition-colors
+                          ${isTest
+                            ? 'text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300'
+                            : 'text-green-700 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300'}`}
+                      >
+                        {isTest ? t.projects.testView : t.projects.view}
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                      {isTest && (
+                        <span className="inline-flex items-center gap-1 text-xs text-fg-subtle">
+                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                          </svg>
+                          {t.projects.protected}
+                        </span>
+                      )}
+                    </div>
                   ) : (
                     <span className="text-xs text-fg-subtle italic">{t.projects.inDev}</span>
                   )}
