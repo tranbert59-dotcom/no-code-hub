@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Footer } from '@/components/kit/Footer'
 import { Navbar } from '@/components/Navbar'
 import { useTheme } from '@/lib/theme'
@@ -133,6 +134,18 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-accent/10 blur-3xl" />
+        </div>
+
+        {/* Logo NO-CODE-HUB, grand et centré, entre la barre et le badge */}
+        <div className="relative w-full flex justify-center mb-10 sm:mb-14">
+          <Image
+            src="/logo.png"
+            alt="NO-CODE-HUB"
+            width={1024}
+            height={1024}
+            priority
+            className="w-40 sm:w-52 lg:w-64 h-auto rounded-3xl shadow-2xl shadow-accent/30 ring-1 ring-line"
+          />
         </div>
 
         <div className="relative max-w-6xl w-full grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">

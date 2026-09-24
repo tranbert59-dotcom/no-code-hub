@@ -29,6 +29,7 @@ publique du workspace. Deux trous à boucher, dont un **légal**.
 | 13 | ✅ | CC | **Compétences Product Builder — UnCode School** — bloc dans `#builder` : outils no-code regroupés par étape (cadrage/BPMN/ERD · Airtable/Softr/Webflow/Figma · Make/n8n/API · Claude Code/IA/vibe coding/Loom/Notion) + encart « Cas clients à la demande » (neutre, sans mention de coach). Bilingue. | 4 | 2 | **P2** | 🤖 | 2026-08-13 | 2026-08-13 |
 | 14 | ✅ | CC | **Section prestation payante `#service`** — « Un problème à résoudre ? » : 3 étapes + CTA paiement + boutons Modèle Notion / Formulaire. Bloc Compétences remonté avant Stack/Certif. Config `SERVICE` centralisée (URLs à brancher). Bilingue. | 4 | 3 | **P2** | 🤖 | 2026-08-13 | 2026-08-13 |
 | 15 | ⬜ | — | **Brancher la prestation payante** — fournir les 3 URL (`SERVICE` dans `page.tsx`) : lien de paiement (Stripe Payment Link / Gumroad), modèle Notion vierge, formulaire (Tally/Typeform/Airtable). Sans elles : CTA en repli e-mail + boutons « bientôt ». | 5 | 2 | **P1** | 🙋 | 2026-08-13 | — |
+| 18 | ✅ | CC | **Logo en grand dans le hero** — demande BC 24/09 : `logo.png` (1024 px) centré entre la barre et le badge « Product Builder · NO-CODE-HUB », `next/image` w-40 → w-64 selon l'écran, ombre accent. Vérifié sur le dev server (3005). **🙋 déploiement VPS manuel** | 2 | 1 | P3 | 🤖 | 2026-09-24 | 2026-09-24 |
 
 ---
 
