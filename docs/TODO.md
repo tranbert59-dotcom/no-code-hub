@@ -32,6 +32,7 @@ publique du workspace. Deux trous à boucher, dont un **légal**.
 | 16 | ✅ | CC | **Correctif SEO `metadataBase`** — `layout.tsx` → `https://no-code-hub.fr` (og:image/twitter:image en absolu). Commit `cd92736`. À redéployer pour effet prod. | 3 | 1 | **P3** | 🤖 | 2026-09-11 | 2026-09-11 |
 | 17 | ✅ | CC | **Cartes projets « En test »** — statut `test` (badge ambre + « Accès sur identifiants ») : CV Creator → cv.no-code-hub.fr, nouvelle carte Élection 2027 → civic.no-code-hub.fr. Bilingue. Commit `e163044`. | 3 | 2 | **P3** | 🤖 | 2026-09-12 | 2026-09-12 |
 | 18 | ✅ | CC | **Logo en grand dans le hero** — demande BC 24/09 : `logo.png` (1024 px) centré entre la barre et le badge « Product Builder · NO-CODE-HUB », `next/image` w-40 → w-64 selon l'écran, ombre accent. Vérifié sur le dev server (3005). **🙋 déploiement VPS manuel** | 2 | 1 | P3 | 🤖 | 2026-09-24 | 2026-09-24 |
+| 19 | ✅ | CC | **Retrait du petit logo de la navbar** — devenu redondant avec le grand logo du hero. `Logo.tsx` → texte seul « NO-CODE-HUB » (image supprimée), prop `size` retiré dans `Navbar.tsx`. Vérifié : 0 image dans `<nav>`. **🙋 déploiement VPS manuel** | 1 | 1 | P3 | 🤖 | 2026-09-25 | 2026-09-25 |
 
 ---
 
