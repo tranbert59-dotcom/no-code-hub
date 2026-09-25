@@ -6,6 +6,7 @@ import { Navbar } from '@/components/Navbar'
 import { useTheme } from '@/lib/theme'
 import { useDict } from '@/lib/i18n'
 import ContactForm from '@/components/ContactForm'
+import { CvRequestButton } from '@/components/CvRequestButton'
 
 const LINKEDIN_URL = 'https://www.linkedin.com/in/bertrand-cabanes-1965b211/'
 
@@ -106,14 +107,6 @@ function LinkedInIcon({ className }: { className?: string }) {
   return (
     <svg className={className} fill="currentColor" viewBox="0 0 24 24">
       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-    </svg>
-  )
-}
-
-function DownloadIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
     </svg>
   )
 }
@@ -306,14 +299,11 @@ export default function HomePage() {
           <div className="text-center">
             <p className="text-fg-muted text-sm mb-5">{t.erp.ctaText}</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href="/cv/Bertrand_Cabanes_CV_JDE_AS400.pdf"
-                download
+              <CvRequestButton
+                profile="as400"
+                label={t.erp.ctaDownload}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm transition-colors"
-              >
-                <DownloadIcon className="w-4 h-4" />
-                {t.erp.ctaDownload}
-              </a>
+              />
               <a
                 href={LINKEDIN_URL}
                 target="_blank"
@@ -434,14 +424,11 @@ export default function HomePage() {
           <div className="text-center">
             <p className="text-fg-muted text-sm mb-5">{t.builder.ctaText}</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href="/cv/Bertrand_Cabanes_CV_Reconversion.pdf"
-                download
+              <CvRequestButton
+                profile="reconversion"
+                label={t.builder.ctaDownload}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-accent hover:bg-accent-hover text-accent-fg font-semibold text-sm transition-colors shadow-lg shadow-accent/20"
-              >
-                <DownloadIcon className="w-4 h-4" />
-                {t.builder.ctaDownload}
-              </a>
+              />
               <a
                 href="#projets"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-accent/40 hover:border-accent text-accent font-semibold text-sm transition-colors"

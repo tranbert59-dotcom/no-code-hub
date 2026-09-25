@@ -29,6 +29,7 @@ export default function PolitiqueConfidentialitePage() {
           <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400">
             <li>Données de navigation (adresse IP, pages visitées, durée de session)</li>
             <li>Données transmises via les formulaires de contact (nom, email, message)</li>
+            <li>Données transmises via le formulaire de demande de CV (nom, prénom, email, fonction, format et profil du CV demandé, motif éventuel) — utilisées uniquement pour traiter votre demande et vous transmettre le document, conservées 6 mois puis supprimées. Aucune revente.</li>
             <li>Préférences cookies stockées en local</li>
           </ul>
         </div>
