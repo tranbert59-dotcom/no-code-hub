@@ -139,10 +139,10 @@ export default function HomePage() {
         {/* Logo NO-CODE-HUB, grand et centré, entre la barre et le badge */}
         <div className="relative w-full flex justify-center mb-10 sm:mb-14">
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="NO-CODE-HUB"
-            width={1024}
-            height={1024}
+            width={512}
+            height={512}
             priority
             className="w-40 sm:w-52 lg:w-64 h-auto rounded-3xl shadow-2xl shadow-accent/30 ring-1 ring-line"
           />
