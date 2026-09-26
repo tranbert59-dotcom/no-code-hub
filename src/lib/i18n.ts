@@ -193,6 +193,16 @@ export const DICT = {
       ctaContact: 'Me contacter',
       back: 'Retour à l’accueil',
     },
+    blog: {
+      badge: 'Blog',
+      title: 'Notes de Product Builder',
+      subtitle: 'Retours d’expérience : de l’ERP au no-code, de l’idée au produit en ligne.',
+      empty: 'Premiers articles bientôt.',
+      read: 'Lire l’article',
+      draft: 'Brouillon',
+      back: 'Tous les articles',
+      minutes: 'min de lecture',
+    },
     stack: {
       title: 'Ma stack technique',
       subtitle: 'Les outils avec lesquels je construis chaque jour.',
@@ -439,6 +449,16 @@ export const DICT = {
       ctaText: 'Test access, a demo or a version tailored to your business: get in touch.',
       ctaContact: 'Contact me',
       back: 'Back to home',
+    },
+    blog: {
+      badge: 'Blog',
+      title: 'Product Builder notes',
+      subtitle: 'Lessons learned: from ERP to no-code, from idea to live product.',
+      empty: 'First articles coming soon.',
+      read: 'Read the article',
+      draft: 'Draft',
+      back: 'All articles',
+      minutes: 'min read',
     },
     stack: {
       title: 'My tech stack',
