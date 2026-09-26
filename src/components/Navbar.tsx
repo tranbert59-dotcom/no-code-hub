@@ -24,11 +24,12 @@ export function Navbar() {
   const t = useDict(lang)
 
   const links = [
-    { href: '#parcours', label: t.nav.parcours, accent: 'hover:text-fg' },
-    { href: '#erp', label: t.nav.jde, accent: 'text-amber-600 dark:text-amber-400 hover:text-amber-500 font-medium' },
-    { href: '#builder', label: t.nav.builder, accent: 'text-accent hover:text-accent-hover font-medium' },
-    { href: '#projets', label: t.nav.projets, accent: 'hover:text-fg' },
-    { href: '#contact', label: t.nav.contact, accent: 'hover:text-fg' },
+    { href: '/#parcours', label: t.nav.parcours, accent: 'hover:text-fg' },
+    { href: '/#erp', label: t.nav.jde, accent: 'text-amber-600 dark:text-amber-400 hover:text-amber-500 font-medium' },
+    { href: '/#builder', label: t.nav.builder, accent: 'text-accent hover:text-accent-hover font-medium' },
+    { href: '/#projets', label: t.nav.projets, accent: 'hover:text-fg' },
+    { href: '/produits', label: t.nav.produits, accent: 'hover:text-fg' },
+    { href: '/#contact', label: t.nav.contact, accent: 'hover:text-fg' },
   ]
 
   return (

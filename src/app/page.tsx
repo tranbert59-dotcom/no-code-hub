@@ -1,6 +1,9 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
+import { PRODUCTS } from '@/lib/products'
+import { ProductCard } from '@/components/ProductCard'
 import { Footer } from '@/components/kit/Footer'
 import { Navbar } from '@/components/Navbar'
 import { useTheme } from '@/lib/theme'
@@ -38,70 +41,6 @@ const BUILDER_STACK = [
 ]
 
 const JDE_VERSIONS = ['World Software (AS400)', 'EnterpriseOne (OneWorld)', 'JDE 8.11+']
-
-// Métadonnées projets — l'ordre correspond à dict.projects.items.
-const PROJECTS_META = [
-  {
-    name: 'WorldCup 2026',
-    href: 'https://worldcup.no-code-hub.fr',
-    status: 'live' as const,
-    stack: ['FastAPI', 'Next.js 14', 'Supabase', 'Discord Bot'],
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
-      </svg>
-    ),
-  },
-  {
-    name: 'CV Creator',
-    href: 'https://cv.no-code-hub.fr',
-    status: 'test' as const,
-    stack: ['Express', 'Next.js 14', 'Prisma', 'Claude AI'],
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Élection 2027',
-    href: 'https://civic.no-code-hub.fr',
-    status: 'test' as const,
-    stack: ['FastAPI', 'Next.js 15', 'Leaflet'],
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" />
-      </svg>
-    ),
-  },
-  {
-    name: 'CyberHub SaaS',
-    href: null,
-    status: 'soon' as const,
-    stack: ['FastAPI', 'PostgreSQL', 'Redis', 'Next.js 14'],
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Gestion Immobilière',
-    href: null,
-    status: 'soon' as const,
-    stack: ['FastAPI', 'PostgreSQL', 'MinIO', 'Next.js 15'],
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      </svg>
-    ),
-  },
-]
 
 function LinkedInIcon({ className }: { className?: string }) {
   return (
@@ -528,89 +467,19 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {PROJECTS_META.map((project, i) => {
-              const copy = t.projects.items[i]
-              const isLive = project.status === 'live'
-              const isTest = project.status === 'test'
-              return (
-                <div
-                  key={project.name}
-                  className={`group bg-card border rounded-2xl p-6 shadow-sm flex flex-col transition-all
-                    ${isLive
-                      ? 'border-green-500/30 hover:border-green-500/60 hover:shadow-md'
-                      : isTest
-                        ? 'border-amber-500/30 hover:border-amber-500/60 hover:shadow-md'
-                        : 'border-line hover:border-accent/40 hover:shadow-sm opacity-90'
-                    }`}
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center
-                      ${isLive ? 'bg-green-500/10 text-green-600 dark:text-green-400'
-                        : isTest ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400'
-                        : 'bg-accent/10 text-accent'}`}>
-                      {project.icon}
-                    </div>
-                    {isLive ? (
-                      <span className="flex items-center gap-1.5 text-xs font-semibold text-green-700 dark:text-green-400 bg-green-500/10 px-3 py-1 rounded-full">
-                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                        {t.projects.live}
-                      </span>
-                    ) : isTest ? (
-                      <span className="flex items-center gap-1.5 text-xs font-semibold text-amber-700 dark:text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full">
-                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                        {t.projects.test}
-                      </span>
-                    ) : (
-                      <span className="text-xs font-medium text-fg-subtle bg-card-2/60 px-3 py-1 rounded-full">
-                        {t.projects.soon}
-                      </span>
-                    )}
-                  </div>
+            {PRODUCTS.map((product, i) => (
+              <ProductCard key={product.name} product={product} copy={t.projects.items[i]} labels={t.projects} />
+            ))}
+          </div>
 
-                  <h3 className="font-bold text-fg text-base mb-1">{project.name}</h3>
-                  <p className="text-xs font-semibold text-accent mb-3">{copy.baseline}</p>
-                  <p className="text-sm text-fg-muted leading-relaxed flex-1 mb-4">{copy.description}</p>
-
-                  {/* Stack tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.stack.map((s) => (
-                      <span key={s} className="text-xs bg-card-2/70 text-fg-muted px-2 py-0.5 rounded-md font-mono">
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-
-                  {project.href ? (
-                    <div className="flex items-center justify-between gap-2">
-                      <a
-                        href={project.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`inline-flex items-center gap-1.5 text-sm font-semibold transition-colors
-                          ${isTest
-                            ? 'text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300'
-                            : 'text-green-700 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300'}`}
-                      >
-                        {isTest ? t.projects.testView : t.projects.view}
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </a>
-                      {isTest && (
-                        <span className="inline-flex items-center gap-1 text-xs text-fg-subtle">
-                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                          </svg>
-                          {t.projects.protected}
-                        </span>
-                      )}
-                    </div>
-                  ) : (
-                    <span className="text-xs text-fg-subtle italic">{t.projects.inDev}</span>
-                  )}
-                </div>
-              )
-            })}
+          <div className="text-center mt-10">
+            <Link
+              href="/produits"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-accent/40 hover:border-accent text-accent font-semibold text-sm transition-colors"
+            >
+              {t.projects.all}
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </section>
