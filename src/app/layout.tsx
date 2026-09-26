@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { CookieBanner } from '@/components/kit/CookieBanner'
 import { ChatWidget } from '@/components/kit/ChatWidget'
+import { ScrollReveal } from '@/components/ScrollReveal'
 import { ThemeProvider, NO_FLASH_SCRIPT } from '@/lib/theme'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <ThemeProvider>
           {children}
+          <ScrollReveal />
           <CookieBanner />
           <ChatWidget
             siteName="NO-CODE-HUB"
