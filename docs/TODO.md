@@ -36,6 +36,21 @@ publique du workspace. Deux trous à boucher, dont un **légal**.
 | 20 | ✅ | CC | **Logo du hero en WebP optimisé** — `logo.png` 1024² (1163 Ko) → `logo.webp` 512² (**5 Ko**, qualité 82) ; réf mise à jour dans `page.tsx`. Commit `07b0f7d`. `logo.png` conservé (non référencé, supprimable). **🙋 déploiement VPS manuel** | 2 | 1 | P3 | 🤖 | 2026-09-25 | 2026-09-25 |
 | 21 | ✅ | CC | **Espace « Mes CV » + formulaire de demande gaté** — 8 PDF (2 profils × 4 formats) ; les 2 boutons CV (ERP=AS400, Builder=Reconversion) ouvrent une **modale** (profil imposé par le contexte, lecture seule) ; champs nom*/prénom/email*/fonction/format*/pourquoi/consentement RGPD* + honeypot ; `POST /api/cv-request` → validation, **lead persistant** (`data/cv-leads.ndjson`), **notif email** `prodbuild@` (réutilise `CONTACT_SMTP_*`), livraison du bon PDF. RGPD complétée. Bilingue. Branche `feature/cv-request-form`. **🙋 déploiement VPS manuel** | 5 | 4 | **P1** | 🤖 | 2026-09-25 | 2026-09-25 |
 | 22 | ⬜ | — | **Publier le 1er article du blog** — relire `content/blog/de-l-erp-au-product-builder.md` (dev : http://localhost:3005/blog), passer `draft: false`, puis ajouter l'entrée « Blog » dans la navbar + lien footer, et redéployer | 2 | 1 | **P3** | 🤝 | 2026-09-27 | — |
+| 23 | ⬜ | — | **GEO — Bloc auteur expert (Bertrand)** *(veille SENZA 30/09)* — sur home + /produits + articles : bloc auteur identifié (nom, « Product Builder », parcours 30 ans ERP/AS400 → reconversion no-code/IA, preuves, lien LinkedIn). C'est **le signal n°1** pour être cité par les IA (GEO). **🤝 BC fournit bio + liens ; moi je pose le composant.** | 5 | 2 | **P1** | 🤝 | 2026-09-30 | — |
+| 24 | ⬜ | — | **GEO — Indexation + mesure** *(veille SENZA)* — vérifier `site:no-code-hub.fr` (pages indexées), brancher/lire **Search Console** partie « IA générative » (impressions + pages citées par l'IA) + filtre trafic IA dans Analytics (cf. #6). **Pas indexé = jamais cité par l'IA.** | 4 | 1 | **P1** | 🤝 | 2026-09-30 | — |
+| 25 | ⬜ | — | **GEO — FAQ (accordéons) partout** *(veille SENZA)* — FAQ en accordéon sur la home et chaque page produit/offre, nourries des vraies questions (formulaire contact, CRM). Format lisible par l'IA, fort levier GEO. | 4 | 3 | **P2** | 🤝 | 2026-09-30 | — |
+| 26 | ⬜ | — | **GEO — Publier une source originale** *(veille SENZA, « hack ultime »)* — article de données internes, ex. « J'ai construit 17 outils no-code+IA : ce qui marche, ce qui casse » (chiffres, cas concrets), pour devenir **une source citée** par les IA. Alimente aussi le blog (#7/#22). **🤝 BC valide l'angle et les chiffres.** | 4 | 3 | **P2** | 🤝 | 2026-09-30 | — |
+| 27 | ⬜ | — | **GEO — llms.txt + perf** *(veille SENZA)* — `llms.txt` à la racine (offres, preuves, cas, tarifs/fourchettes) + audit PageSpeed/mobile. Secondaire (schema.org **non** prioritaire d'après la veille). | 2 | 2 | **P3** | 🤝 | 2026-09-30 | — |
+
+---
+
+## Socle GEO *(cadré le 2026-09-30 d'après la veille SENZA SEO/GEO)*
+
+> Source : `D:\CC\Docs\Veille\SENZA_SEO_GEO_2026_09\` (surtout `04_Application_a_nos_sites.md`).
+> **GEO = Generative Engine Optimization** : être cité/mentionné par les IA (ChatGPT ~79 % des recherches IA).
+> no-code-hub est la cible **prioritaire** (activité de service à faire recommander par l'IA).
+> Ordre conseillé : **#24 (indexation/mesure) → #23 (auteur) → #25 (FAQ) → #26 (source originale) → #27 (llms.txt/perf)**.
+> Le même patron (auteur / FAQ / preuves / source originale) se réplique ensuite sur cv-creator, civic, immo.
 
 ---
 
