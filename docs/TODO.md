@@ -41,6 +41,7 @@ publique du workspace. Deux trous à boucher, dont un **légal**.
 | 25 | ⬜ | — | **GEO — FAQ (accordéons) partout** *(veille SENZA)* — FAQ en accordéon sur la home et chaque page produit/offre, nourries des vraies questions (formulaire contact, CRM). Format lisible par l'IA, fort levier GEO. | 4 | 3 | **P2** | 🤝 | 2026-09-30 | — |
 | 26 | ⬜ | — | **GEO — Publier une source originale** *(veille SENZA, « hack ultime »)* — article de données internes, ex. « J'ai construit 17 outils no-code+IA : ce qui marche, ce qui casse » (chiffres, cas concrets), pour devenir **une source citée** par les IA. Alimente aussi le blog (#7/#22). **🤝 BC valide l'angle et les chiffres.** | 4 | 3 | **P2** | 🤝 | 2026-09-30 | — |
 | 27 | ⬜ | — | **GEO — llms.txt + perf** *(veille SENZA)* — `llms.txt` à la racine (offres, preuves, cas, tarifs/fourchettes) + audit PageSpeed/mobile. Secondaire (schema.org **non** prioritaire d'après la veille). | 2 | 2 | **P3** | 🤝 | 2026-09-30 | — |
+| 28 | ⬜ | — | **Offre `#service` en livrables** *(veille Grégoire Beaurain DSC 10/10, candidate #C1)* — réécrire la section prestation en **8 livrables** (diagnostic · carte du système · base de conversion · plan visibilité · relance · actifs IA · agents IA · pilotage) + bloc « ce qu'on ne fait pas maintenant » ; CTA/config `SERVICE` inchangés. Dépend de #15 (3 URL). **🤝 BC valide la liste et les fourchettes ; moi le texte + composant, bilingue.** Source : `Docs/Veille/Gregoire_Beaurain_DSC_Atelier_2026_10_10/04_CR_Projets_Apps.md` | 5 | 2 | **P1** | 🤝 | 2026-10-10 | — |
 
 ---
 
