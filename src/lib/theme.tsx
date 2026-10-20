@@ -116,7 +116,10 @@ export const NO_FLASH_SCRIPT = `
 (function(){
   try {
     var t = localStorage.getItem('${STORAGE.theme}');
-    if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    // Clair par défaut : la vitrine s'ouvre sur le thème pour lequel elle est
+    // conçue, et non sur la préférence système du visiteur. Le sombre reste
+    // accessible au sélecteur, et le choix est mémorisé.
+    if (!t) t = '${DEFAULTS.theme}';
     var a = localStorage.getItem('${STORAGE.accent}') || '${DEFAULTS.accent}';
     var l = localStorage.getItem('${STORAGE.lang}') || '${DEFAULTS.lang}';
     var r = document.documentElement;

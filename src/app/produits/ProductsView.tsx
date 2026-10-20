@@ -35,7 +35,7 @@ export function ProductsView() {
           <span className="inline-block mb-4 text-xs font-semibold uppercase tracking-widest text-accent bg-accent/10 px-4 py-1.5 rounded-full">
             {t.products.badge}
           </span>
-          <h1 className="text-3xl sm:text-4xl font-bold text-fg mb-4">{t.products.title}</h1>
+          <h1 className="text-title font-extrabold text-fg mb-4">{t.products.title}</h1>
           <p className="text-fg-muted text-sm sm:text-base max-w-2xl mx-auto">{t.products.subtitle}</p>
 
           {/* Filtres par statut */}

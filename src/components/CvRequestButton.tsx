@@ -260,7 +260,7 @@ export function CvRequestButton({
                     required
                     className="mt-0.5 w-4 h-4 rounded border-line text-accent focus:ring-accent/50"
                   />
-                  <span className="text-xs text-fg-muted leading-relaxed">{t.consent}</span>
+                  <span className="text-sm text-fg-muted leading-relaxed">{t.consent}</span>
                 </label>
 
                 <p className="text-[11px] text-fg-subtle leading-relaxed">🔒 {t.privacy}</p>

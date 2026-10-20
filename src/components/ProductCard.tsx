@@ -65,7 +65,7 @@ export function ProductCard({ product, copy, labels, detailed = false }: Props) 
       {detailed && copy.features && (
         <ul className="space-y-2 mb-5 flex-1">
           {copy.features.map((f) => (
-            <li key={f} className="flex items-start gap-2 text-xs text-fg-muted leading-relaxed">
+            <li key={f} className="flex items-start gap-2 text-sm text-fg-muted leading-relaxed">
               <span className="text-accent mt-0.5">✓</span>
               <span>{f}</span>
             </li>
@@ -76,7 +76,7 @@ export function ProductCard({ product, copy, labels, detailed = false }: Props) 
       {/* Stack tags */}
       <div className="flex flex-wrap gap-1.5 mb-4">
         {product.stack.map((s) => (
-          <span key={s} className="text-xs bg-card-2/70 text-fg-muted px-2 py-0.5 rounded-md font-mono">
+          <span key={s} className="text-xs bg-card-2/70 text-fg-muted px-2 py-0.5 rounded-lg font-mono">
             {s}
           </span>
         ))}

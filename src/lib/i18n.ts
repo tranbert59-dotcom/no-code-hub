@@ -32,7 +32,7 @@ export const DICT = {
       imageAlt: 'Illustration : de l’ERP AS400 vers l’avenir — IA, no-code et automatisation',
     },
     parcours: {
-      title: 'Mon parcours',
+      title: 'Mon *parcours*',
       subtitle: 'Une reconversion construite sur 30 ans d’expérience en systèmes d’information.',
       experiences: [
         { years: '1994 – 2023', label: 'Consultant ERP / JD Edwards AS400', detail: 'Total · Bonduelle · Bureau Veritas · Reckitt · Nexity…' },
@@ -90,7 +90,7 @@ export const DICT = {
     },
     builder: {
       badge: 'Reconversion · Product Builder',
-      title: 'De l’ERP à l’IA — Product Builder',
+      title: 'De l’ERP *à l’IA* — Product Builder',
       subtitle:
         'Depuis 2023, je conçois, automatise et déploie des produits numériques utiles — en orchestrant no-code, automatisation, IA et code quand il le faut, de l’idée à la mise en production sur mon propre serveur.',
       stackTitle: 'Stack & compétences',
@@ -148,7 +148,7 @@ export const DICT = {
     },
     service: {
       badge: 'Prestation · à la demande',
-      title: 'Un problème métier à résoudre ?',
+      title: 'Un problème métier *à résoudre* ?',
       subtitle:
         'Décrivez votre besoin et je le transforme en solution no-code : base de données, interface et automatisations. Une prestation cadrée, de l’analyse à la livraison.',
       steps: [
@@ -208,7 +208,7 @@ export const DICT = {
       subtitle: 'Les outils avec lesquels je construis chaque jour.',
     },
     contact: {
-      title: 'Vous avez un projet ? Parlons-en.',
+      title: 'Vous avez un projet ? *Parlons-en.*',
       subtitle:
         'Expert ERP disponible pour des missions de consulting, automatisation & product building ou collaboration sur des projets SaaS.',
       ctaLinkedin: 'Me contacter sur LinkedIn',
@@ -289,7 +289,7 @@ export const DICT = {
       imageAlt: 'Illustration: from AS400 ERP toward the future — AI, no-code and automation',
     },
     parcours: {
-      title: 'My journey',
+      title: 'My *journey*',
       subtitle: 'A career change built on 30 years of experience in information systems.',
       experiences: [
         { years: '1994 – 2023', label: 'ERP Consultant / JD Edwards AS400', detail: 'Total · Bonduelle · Bureau Veritas · Reckitt · Nexity…' },
@@ -347,7 +347,7 @@ export const DICT = {
     },
     builder: {
       badge: 'Career change · Product Builder',
-      title: 'From ERP to AI — Product Builder',
+      title: 'From ERP *to AI* — Product Builder',
       subtitle:
         'Since 2023 I design, automate and deploy useful digital products — orchestrating no-code, automation, AI and code when needed, from idea to production on my own server.',
       stackTitle: 'Stack & skills',
@@ -405,7 +405,7 @@ export const DICT = {
     },
     service: {
       badge: 'Service · on demand',
-      title: 'A business problem to solve?',
+      title: 'A business problem *to solve*?',
       subtitle:
         'Describe your need and I turn it into a no-code solution: database, interface and automations. A scoped engagement, from analysis to delivery.',
       steps: [
@@ -465,7 +465,7 @@ export const DICT = {
       subtitle: 'The tools I build with every day.',
     },
     contact: {
-      title: 'Got a project? Let’s talk.',
+      title: 'Got a project? *Let’s talk.*',
       subtitle:
         'ERP expert available for consulting, automation & product-building assignments, or collaboration on SaaS projects.',
       ctaLinkedin: 'Contact me on LinkedIn',

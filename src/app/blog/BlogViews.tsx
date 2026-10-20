@@ -56,7 +56,7 @@ export function BlogIndexView({ posts }: { posts: PostMeta[] }) {
           <span className="inline-block mb-4 text-xs font-semibold uppercase tracking-widest text-accent bg-accent/10 px-4 py-1.5 rounded-full">
             {t.blog.badge}
           </span>
-          <h1 className="text-3xl sm:text-4xl font-bold text-fg mb-4">{t.blog.title}</h1>
+          <h1 className="text-title font-extrabold text-fg mb-4">{t.blog.title}</h1>
           <p className="text-fg-muted text-sm sm:text-base">{t.blog.subtitle}</p>
         </div>
       </section>
@@ -74,7 +74,7 @@ export function BlogIndexView({ posts }: { posts: PostMeta[] }) {
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex flex-wrap gap-1.5">
                   {post.tags.map((tag) => (
-                    <span key={tag} className="text-xs bg-card-2/70 text-fg-muted px-2 py-0.5 rounded-md font-mono">{tag}</span>
+                    <span key={tag} className="text-xs bg-card-2/70 text-fg-muted px-2 py-0.5 rounded-lg font-mono">{tag}</span>
                   ))}
                 </div>
                 <Link href={`/blog/${post.slug}`} className="text-sm font-semibold text-accent hover:text-accent-hover">
@@ -100,7 +100,7 @@ export function BlogPostView({ post, html }: { post: PostMeta; html: string }) {
             <span aria-hidden="true">←</span> {t.blog.back}
           </Link>
           <Meta post={post} />
-          <h1 className="text-3xl sm:text-4xl font-bold text-fg mt-3 mb-4 leading-tight">{post.title}</h1>
+          <h1 className="text-title font-extrabold text-fg mt-3 mb-4">{post.title}</h1>
           {post.description && <p className="text-lg text-fg-muted mb-10">{post.description}</p>}
           {/* Contenu issu des fichiers Markdown du repo (auteur de confiance), échappé par renderMarkdown. */}
           <div className="blog-prose" dangerouslySetInnerHTML={{ __html: html }} />

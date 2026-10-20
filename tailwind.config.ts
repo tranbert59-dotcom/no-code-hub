@@ -9,6 +9,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      // Échelle fluide : les titres grandissent avec la fenêtre sans palier.
+      //  · display — titre de page (h1)      : 40 → 60 px
+      //  · title   — titre de section (h2)   : 28 → 40 px
+      fontFamily: {
+        hand: ['Caveat', 'cursive'],   // accent manuscrit, graisse 600 seulement
+      },
+      fontSize: {
+        display: ["clamp(2.5rem, 1.6rem + 4.2vw, 3.75rem)",
+                  { lineHeight: "1.04", letterSpacing: "-0.03em" }],
+        title: ["clamp(1.75rem, 1.3rem + 2.1vw, 2.5rem)",
+                { lineHeight: "1.12", letterSpacing: "-0.022em" }],
+      },
       colors: {
         // Tokens sémantiques — voir globals.css
         surface: {
