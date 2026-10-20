@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Politique des cookies — NO-CODE-HUB',
+  alternates: { canonical: '/cookies' },
 }
 
 export default function CookiesPage() {

@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Politique de confidentialité — NO-CODE-HUB',
+  alternates: { canonical: '/politique-de-confidentialite' },
 }
 
 export default function PolitiqueConfidentialitePage() {

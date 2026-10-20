@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: "Conditions Générales d'Utilisation — NO-CODE-HUB",
+  alternates: { canonical: '/cgu' },
 }
 
 export default function CGUPage() {

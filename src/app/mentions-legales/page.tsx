@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Mentions légales — NO-CODE-HUB',
+  alternates: { canonical: '/mentions-legales' },
 }
 
 export default function MentionsLegalesPage() {

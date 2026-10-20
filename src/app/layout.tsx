@@ -15,6 +15,12 @@ export const metadata: Metadata = {
     template: '%s | Bertrand Cabanes',
   },
   description: "Expert ERP/AS400 reconverti au développement numérique. Je construis des outils SaaS avec FastAPI, Next.js et l'IA. Découvrez NO-CODE-HUB.",
+  // Canonique de l'accueil. `www.no-code-hub.fr` et la racine servent le même
+  // site en 200 depuis la correction DNS du 20/10 : sans cette balise, Google
+  // voit deux sites jumeaux et répartit les signaux entre eux.
+  // Toute page déclarant `metadata` sans `alternates` hérite de celle-ci —
+  // les pages légales posent donc la leur (voir src/app/(legal)).
+  alternates: { canonical: '/' },
   openGraph: {
     title: 'Bertrand Cabanes — Product Builder · NO-CODE-HUB',
     description: "Expert ERP/AS400 reconverti au développement numérique. Je construis des outils SaaS avec FastAPI, Next.js et l'IA.",

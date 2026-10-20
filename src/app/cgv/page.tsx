@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Conditions Générales de Vente — NO-CODE-HUB',
+  alternates: { canonical: '/cgv' },
 }
 
 export default function CGVPage() {
