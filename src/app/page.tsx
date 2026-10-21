@@ -609,6 +609,59 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── MÉTHODE — comment je travaille ── */}
+      <section id="methode" className="py-20 px-6 bg-surface">
+        <div className="max-w-5xl mx-auto">
+          <Pile>
+            {/* Panneau 1 — les quatre étapes, puis il se fige. */}
+            <div className="bg-surface pb-2">
+              <div className="text-center mb-12">
+                <span className="inline-block mb-4 text-xs font-semibold uppercase tracking-widest text-accent bg-accent/10 px-4 py-1.5 rounded-full">
+                  {t.method.badge}
+                </span>
+                <h2 className="text-title font-extrabold text-fg mb-3">
+                  <Titre texte={t.method.title} />
+                </h2>
+                <p className="text-fg-muted text-base max-w-xl mx-auto">{t.method.subtitle}</p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {t.method.steps.map((s) => (
+                  <CarteChevauchee key={s.n} badge={<Pastille>{s.n}</Pastille>}>
+                    <h3 className="text-fg font-semibold text-base mb-1">{s.title}</h3>
+                    <p className="text-fg-muted text-base leading-relaxed">{s.desc}</p>
+                  </CarteChevauchee>
+                ))}
+              </div>
+            </div>
+
+            {/* Panneau 2 — ce qui est automatisé, ce qui ne l'est pas. */}
+            <div className="flex md:min-h-[55vh] items-center bg-surface pb-16 pt-14">
+              <div className="w-full">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {t.method.columns.map((c) => (
+                    <div key={c.title} className="bg-card rounded-2xl p-6 border border-line shadow-sm">
+                      <div className="text-2xl mb-2" aria-hidden="true">{c.icon}</div>
+                      <h3 className="text-fg font-semibold text-base mb-2">{c.title}</h3>
+                      <p className="text-fg-muted text-base leading-relaxed">{c.text}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="text-center mt-10">
+                  <a
+                    href="#service"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-accent/40 hover:border-accent text-accent font-semibold text-base transition-colors"
+                  >
+                    {t.method.cta}
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </Pile>
+        </div>
+      </section>
+
       {/* ── PRESTATION PAYANTE — un problème à résoudre ── */}
       <section id="service" className="py-20 px-6 bg-surface-2">
         <div className="max-w-4xl mx-auto">
@@ -748,6 +801,129 @@ export default function HomePage() {
               <span aria-hidden="true">→</span>
             </Link>
           </div>
+              </div>
+            </div>
+          </Pile>
+        </div>
+      </section>
+
+      {/* ── RÉSULTATS — ce que ça donne ── */}
+      <section id="resultats" className="py-20 px-6 bg-surface-2">
+        <div className="max-w-5xl mx-auto">
+          <Pile>
+            {/* Panneau 1 — les outils, avec leur état exact. */}
+            <div className="bg-surface-2 pb-2">
+              <div className="text-center mb-10">
+                <span className="inline-block mb-4 text-xs font-semibold uppercase tracking-widest text-accent bg-accent/10 px-4 py-1.5 rounded-full">
+                  {t.results.badge}
+                </span>
+                <h2 className="text-title font-extrabold text-fg mb-3">
+                  <Titre texte={t.results.title} />
+                </h2>
+                <p className="text-fg-muted text-base max-w-xl mx-auto">{t.results.subtitle}</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {t.results.items.map((it) => (
+                  <div key={it.name} className="bg-card rounded-2xl p-6 border border-line shadow-sm flex flex-col">
+                    <h3 className="text-fg font-bold text-base mb-2">{it.name}</h3>
+                    <p className="text-xs font-semibold text-accent mb-1">{it.state}</p>
+                    <p className="text-xs text-fg-subtle mb-4">{it.since}</p>
+                    <p className="text-base text-fg-muted leading-relaxed mb-4 flex-1">{it.detail}</p>
+                    <p className="text-xs text-fg-subtle border-t border-line pt-3">
+                      <span className="font-semibold uppercase tracking-wide">{t.results.forLabel}</span> · {it.who}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Panneau 2 — les outils internes, puis le renvoi vers le catalogue. */}
+            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-16 pt-14">
+              <div className="w-full">
+                <CarteChevauchee
+                  className="mx-auto max-w-2xl"
+                  badge={
+                    <Pastille>
+                      <span aria-hidden="true">⚙</span>
+                    </Pastille>
+                  }
+                >
+                  <h3 className="text-fg font-semibold text-base mb-2">{t.results.internalTitle}</h3>
+                  <p className="text-fg-muted text-base leading-relaxed">{t.results.internalText}</p>
+                </CarteChevauchee>
+                <div className="text-center mt-10">
+                  <Link
+                    href="/produits"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-accent/40 hover:border-accent text-accent font-semibold text-base transition-colors"
+                  >
+                    {t.results.all}
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Pile>
+        </div>
+      </section>
+
+      {/* ── FAQ — questions avant de commencer ── */}
+      <section id="faq" className="py-20 px-6 bg-surface">
+        <div className="max-w-3xl mx-auto">
+          <Pile>
+            {/* Panneau 1 — le titre seul : un panneau figé ne peut pas contenir
+                d'accordéon, il grandirait au-delà de l'écran à l'ouverture. */}
+            <div className="bg-surface pb-2">
+              <div className="text-center mb-10">
+                <span className="inline-block mb-4 text-xs font-semibold uppercase tracking-widest text-accent bg-accent/10 px-4 py-1.5 rounded-full">
+                  {t.faq.badge}
+                </span>
+                <h2 className="text-title font-extrabold text-fg mb-3">
+                  <Titre texte={t.faq.title} />
+                </h2>
+                <p className="text-fg-muted text-base max-w-md mx-auto">{t.faq.subtitle}</p>
+              </div>
+            </div>
+
+            {/* Panneau 2 — les questions. Dernier panneau : hauteur libre. */}
+            <div className="bg-surface pb-16 pt-14">
+              <div className="space-y-3">
+                {t.faq.items.map((it) => (
+                  <details
+                    key={it.q}
+                    className="group rounded-2xl border border-line bg-card shadow-sm open:border-accent/40"
+                  >
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-2xl px-5 py-4 text-left font-semibold text-fg focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent [&::-webkit-details-marker]:hidden">
+                      {it.q}
+                      <svg
+                        className="h-5 w-5 shrink-0 text-accent transition-transform group-open:rotate-180"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </summary>
+                    <div className="px-5 pb-5 text-base leading-relaxed text-fg-muted">
+                      <p>{it.a}</p>
+                      {it.href && (
+                        <p className="mt-3">
+                          {it.href.startsWith('/') ? (
+                            <Link href={it.href} className="font-semibold text-accent hover:underline">
+                              {it.hrefLabel} →
+                            </Link>
+                          ) : (
+                            <a href={it.href} className="font-semibold text-accent hover:underline">
+                              {it.hrefLabel} →
+                            </a>
+                          )}
+                        </p>
+                      )}
+                    </div>
+                  </details>
+                ))}
               </div>
             </div>
           </Pile>

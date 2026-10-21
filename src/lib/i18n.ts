@@ -163,6 +163,62 @@ export const DICT = {
       form: 'Formulaire',
       soonTag: 'bientôt',
     },
+    method: {
+      badge: 'Méthode',
+      title: 'Comment *je travaille*',
+      subtitle:
+        'Du premier échange à la mise en ligne : quatre étapes, et ce qui est automatisé ou non.',
+      steps: [
+        { n: '1', title: 'On cadre', desc: 'Je pose le besoin par écrit : le problème, les utilisateurs, ce qui doit exister à la fin. Note de cadrage, schéma de processus (BPMN), modèle de données.' },
+        { n: '2', title: 'On assemble', desc: 'Base de données, interface et automatisations en no-code (Airtable, Softr, Make, n8n) ; du code (FastAPI, Next.js) quand le no-code ne suffit plus.' },
+        { n: '3', title: 'On teste', desc: 'MVP d’abord : le plus petit outil utile, testé et documenté au fil de l’eau, avant d’y ajouter quoi que ce soit.' },
+        { n: '4', title: 'On met en ligne', desc: 'Déploiement sur mon propre serveur, en HTTPS, derrière nginx — comme pour mes propres outils.' },
+      ],
+      columns: [
+        { icon: '⚙️', title: 'Ce qui est automatisé', text: 'Les tests et, sur certains de mes projets, le déploiement (GitHub Actions vers le serveur). L’IA — Claude Code — accélère l’écriture du code.' },
+        { icon: '✋', title: 'Ce qui reste à la main', text: 'Le cadrage, les arbitrages, et la mise en ligne de plusieurs de mes sites, que je fais moi-même en SSH.' },
+        // TODO BC : liste « de votre côté » à valider — la répartition réelle des tâches n’est écrite nulle part dans les sources.
+        { icon: '🤝', title: 'De votre côté', text: 'Décrire votre problème, répondre aux questions de cadrage, essayer ce que je livre et me dire ce qui ne va pas.' },
+      ],
+      cta: 'Voir la prestation',
+    },
+    results: {
+      badge: 'Preuves',
+      title: 'Ce que ça *donne*',
+      subtitle: 'Des outils réels, avec leur état exact : en ligne, en test fermé ou terminé.',
+      forLabel: 'Pour qui',
+      items: [
+        { name: 'WorldCup 2026', state: 'Terminé · vitrine en ligne', since: 'En ligne pendant la Coupe du Monde 2026, close le 19 juillet', who: 'Pronostiqueurs entre amis ou collègues, en groupes privés', detail: 'Classements, bot Discord, export Excel. La compétition est terminée ; l’application reste consultable.' },
+        // TODO BC : date de première mise en ligne de CV Creator — les sources ne donnent que « bêta fermée, déploiement continu ».
+        { name: 'CV Creator', state: 'Bêta fermée', since: 'Mises à jour déployées en continu', who: 'Candidats à un emploi', detail: 'Test gratuit de la lisibilité d’un CV par les logiciels de tri, sans compte ; puis CV, lettre et candidature avec l’aide de l’IA.' },
+        // TODO BC : immo.no-code-hub.fr est en test fermé depuis le 24/08/2026 mais sa carte dit « Bientôt », sans lien — trancher le statut avant de le citer ici.
+        { name: 'Élection 2027', state: 'Test fermé', since: 'En ligne depuis le 24 août 2026', who: 'Citoyens', detail: 'Institutions, candidats, indicateurs de l’état du pays — chaque fait relié à sa source.' },
+      ],
+      // TODO BC : ni chiffres d’usage (utilisateurs, pronostics, CV testés) ni « ce que chaque outil remplace » ne figurent dans les sources — rien n’est affiché tant que tu ne les fournis pas.
+      internalTitle: 'Mes outils internes',
+      internalText: 'Un CRM privé, une source de données publiques françaises et une veille automatisée tournent en production sur le même serveur. Ils alimentent ma propre prospection et mes autres outils.',
+      all: 'Voir tous les produits',
+    },
+    faq: {
+      badge: 'FAQ',
+      // TODO BC : ces questions sont anticipées, pas relevées — les remplacer ou les compléter par celles réellement reçues (formulaire de contact, CRM).
+      title: 'Questions *avant de commencer*',
+      subtitle: 'Réponses courtes. Pour le reste, écrivez-moi.',
+      items: [
+        { q: 'Qu’est-ce qu’un Product Builder ?', a: 'Quelqu’un qui conçoit et livre un produit numérique de bout en bout — cadrage, base de données, interface, automatisations, mise en ligne — en combinant no-code, IA et code quand il le faut.', href: '', hrefLabel: '' },
+        { q: 'Quelle différence avec un développeur ?', a: 'Je choisis l’outil le plus simple qui résout le problème : no-code d’abord, code seulement quand c’est nécessaire. Je ne me présente pas comme un développeur full-stack artisan du code.', href: '', hrefLabel: '' },
+        { q: 'Quels outils utilisez-vous ?', a: 'Airtable, Softr, Webflow, Figma, Notion, Make et n8n pour le no-code ; FastAPI, Next.js et PostgreSQL quand il faut du code ; Claude Code pour accélérer la construction.', href: '', hrefLabel: '' },
+        // TODO BC : hébergement d’un projet client — seul l’hébergement de mes propres outils est établi.
+        { q: 'Où sont hébergés les outils ?', a: 'Mes outils tournent sur mon propre serveur (VPS), en HTTPS.', href: '', hrefLabel: '' },
+        { q: 'Que deviennent mes données ?', a: 'Pour une demande de CV : utilisées uniquement pour répondre, conservées 6 mois puis supprimées, jamais revendues. Le détail est dans la politique de confidentialité.', href: '/politique-de-confidentialite', hrefLabel: 'Politique de confidentialité' },
+        // TODO BC : prix ou fourchette de l’analyse de départ — non établi, donc non affiché.
+        { q: 'Combien ça coûte ?', a: 'Je n’affiche pas de tarif pour l’instant : l’analyse de départ est une prestation payante dont le paiement en ligne arrive bientôt. Écrivez-moi pour connaître le prix.', href: '#contact', hrefLabel: 'Me contacter' },
+        // TODO BC : délai — aucun délai réel n’est consigné ; formulation générique à valider.
+        { q: 'Quel délai prévoir ?', a: 'Il dépend de la taille du besoin. Je ne l’annonce pas avant d’avoir lu votre description.', href: '', hrefLabel: '' },
+        { q: 'Pouvez-vous brancher un outil moderne sur mon ERP AS400 ?', a: 'C’est une moitié de mon parcours : IA et automatisation autour du legacy AS400, portails web connectés aux systèmes existants. Chaque cas se juge sur pièces.', href: '', hrefLabel: '' },
+        { q: 'Êtes-vous disponible pour une mission ?', a: 'Oui : je reste ouvert aux missions JD Edwards / AS400 (World Software et EnterpriseOne) et aux missions d’automatisation et de product building.', href: '#contact', hrefLabel: 'Me contacter' },
+      ],
+    },
     projects: {
       title: 'Ce que je construis',
       subtitle: 'Des outils SaaS pensés pour les professionnels — en production, en test ou en cours de développement.',
@@ -420,6 +476,54 @@ export const DICT = {
       notion: 'Notion template',
       form: 'Form',
       soonTag: 'soon',
+    },
+    method: {
+      badge: 'Method',
+      title: 'How *I work*',
+      subtitle:
+        'From the first conversation to going live: four steps, and what is automated or not.',
+      steps: [
+        { n: '1', title: 'Scope', desc: 'I write the need down: the problem, the users, what must exist at the end. Scoping note, process diagram (BPMN), data model.' },
+        { n: '2', title: 'Assemble', desc: 'Database, interface and automations in no-code (Airtable, Softr, Make, n8n); code (FastAPI, Next.js) when no-code is no longer enough.' },
+        { n: '3', title: 'Test', desc: 'MVP first: the smallest useful tool, tested and documented as I go, before adding anything to it.' },
+        { n: '4', title: 'Go live', desc: 'Deployed on my own server, over HTTPS, behind nginx — the same way as my own tools.' },
+      ],
+      columns: [
+        { icon: '⚙️', title: 'What is automated', text: 'Tests and, on some of my projects, deployment (GitHub Actions to the server). AI — Claude Code — speeds up writing the code.' },
+        { icon: '✋', title: 'What stays manual', text: 'Scoping, trade-offs, and putting several of my sites live, which I do myself over SSH.' },
+        { icon: '🤝', title: 'On your side', text: 'Describe your problem, answer the scoping questions, try what I deliver and tell me what is wrong.' },
+      ],
+      cta: 'See the service',
+    },
+    results: {
+      badge: 'Proof',
+      title: 'What it *delivers*',
+      subtitle: 'Real tools, with their exact status: live, in closed testing or finished.',
+      forLabel: 'For whom',
+      items: [
+        { name: 'WorldCup 2026', state: 'Finished · showcase online', since: 'Live during the 2026 World Cup, which ended on 19 July', who: 'Prediction players among friends or colleagues, in private groups', detail: 'Leaderboards, Discord bot, Excel export. The tournament is over; the app can still be browsed.' },
+        { name: 'CV Creator', state: 'Closed beta', since: 'Updates deployed continuously', who: 'Job seekers', detail: 'Free check of how recruiting software reads a résumé, no account needed; then résumé, cover letter and application with AI help.' },
+        { name: 'Election 2027', state: 'Closed testing', since: 'Live since 24 August 2026', who: 'Citizens', detail: 'Institutions, candidates, indicators of the state of the country — every fact linked to its source.' },
+      ],
+      internalTitle: 'My internal tools',
+      internalText: 'A private CRM, a source of French public data and an automated watch run in production on the same server. They feed my own prospecting and my other tools.',
+      all: 'See all products',
+    },
+    faq: {
+      badge: 'FAQ',
+      title: 'Questions *before you start*',
+      subtitle: 'Short answers. For anything else, write to me.',
+      items: [
+        { q: 'What is a Product Builder?', a: 'Someone who designs and delivers a digital product end to end — scoping, database, interface, automations, going live — combining no-code, AI and code when needed.', href: '', hrefLabel: '' },
+        { q: 'How is that different from a developer?', a: 'I pick the simplest tool that solves the problem: no-code first, code only when necessary. I do not present myself as a full-stack developer who hand-writes everything.', href: '', hrefLabel: '' },
+        { q: 'Which tools do you use?', a: 'Airtable, Softr, Webflow, Figma, Notion, Make and n8n for no-code; FastAPI, Next.js and PostgreSQL when code is needed; Claude Code to speed up building.', href: '', hrefLabel: '' },
+        { q: 'Where are the tools hosted?', a: 'My tools run on my own server (VPS), over HTTPS.', href: '', hrefLabel: '' },
+        { q: 'What happens to my data?', a: 'For a résumé request: used only to answer you, kept for 6 months then deleted, never resold. Details are in the privacy policy.', href: '/politique-de-confidentialite', hrefLabel: 'Privacy policy' },
+        { q: 'How much does it cost?', a: 'I do not publish a price yet: the starting analysis is a paid service whose online payment is coming soon. Write to me to get the price.', href: '#contact', hrefLabel: 'Contact me' },
+        { q: 'How long does it take?', a: 'It depends on the size of the need. I do not give a timeframe before reading your description.', href: '', hrefLabel: '' },
+        { q: 'Can you connect a modern tool to my AS400 ERP?', a: 'That is one half of my background: AI and automation around the legacy AS400, web portals connected to existing systems. Each case is judged on its own merits.', href: '', hrefLabel: '' },
+        { q: 'Are you available for an assignment?', a: 'Yes: I remain open to JD Edwards / AS400 assignments (World Software and EnterpriseOne) and to automation and product-building work.', href: '#contact', hrefLabel: 'Contact me' },
+      ],
     },
     projects: {
       title: 'What I build',
