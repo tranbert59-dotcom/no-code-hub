@@ -169,7 +169,7 @@ function IconeDocument({ className }: { className?: string }) {
  */
 function Pile({
   children,
-  decalage = 22,
+  decalage = 14,
 }: {
   children: ReactNode[]
   decalage?: number
@@ -190,6 +190,7 @@ function Pile({
             // d'un élément statique quel que soit l'ordre du document. Sans
             // lui, le panneau figé repasserait devant celui qui monte.
             'relative',
+            'pile-panneau',
             i < children.length - 1 ? 'md:sticky' : '',
             // Clair : ombre portée. Sombre : lisere lumineux + halo bleu,
             // une ombre noire ne se voyant pas sur un fond noir.
@@ -300,6 +301,11 @@ export default function HomePage() {
                 </h2>
                 <p className="text-fg-muted text-base max-w-lg mx-auto">{t.parcours.subtitle}</p>
               </div>
+            </div>
+
+            {/* Panneau 2 — la frise remonte sur le titre. */}
+            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-12 pt-10">
+              <div className="w-full">
 
               <div className="relative">
             <div className="absolute left-6 top-0 bottom-0 w-px bg-accent/20 hidden sm:block" />
@@ -318,13 +324,14 @@ export default function HomePage() {
               ))}
                 </div>
               </div>
+              </div>
             </div>
 
-            {/* Panneau 2 — la rangée entière monte prendre la place du titre.
+            {/* Panneau 3 — la rangée des chiffres remonte.
                 La hauteur n'est pas décorative : c'est elle qui détermine
                 combien de temps le panneau 1 reste figé pendant la remontée.
                 Trop court, et l'effet passe inaperçu. */}
-            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-16 pt-14">
+            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-12 pt-10">
               <div className="grid w-full grid-cols-2 sm:grid-cols-4 gap-4">
                 {t.parcours.stats.map((s) => (
                   <CarteChevauchee
@@ -357,6 +364,11 @@ export default function HomePage() {
                 </h2>
                 <p className="text-fg-muted text-base max-w-xl mx-auto">{t.erp.subtitle}</p>
               </div>
+            </div>
+
+            {/* Panneau 2 — les deux cartes remontent sur le titre. */}
+            <div className="flex md:min-h-[55vh] items-center bg-surface pb-12 pt-10">
+              <div className="w-full">
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
                 {/* Modules maîtrisés */}
@@ -400,10 +412,11 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
+              </div>
             </div>
 
-            {/* Panneau 2 — le détail des missions remonte. */}
-            <div className="flex md:min-h-[55vh] items-center bg-surface pb-16 pt-14">
+            {/* Panneau 3 — le détail des missions remonte. */}
+            <div className="flex md:min-h-[55vh] items-center bg-surface pb-12 pt-10">
               <div className="w-full">
               {/* Ce que je faisais concrètement */}
               <div className="bg-card rounded-2xl p-6 border border-line shadow-sm mb-8">
@@ -421,8 +434,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Panneau 3 — l'appel à l'action remonte en dernier. */}
-            <div className="flex md:min-h-[55vh] items-center bg-surface pb-16 pt-14">
+            {/* Panneau 4 — l'appel à l'action remonte en dernier. */}
+            <div className="flex md:min-h-[55vh] items-center bg-surface pb-12 pt-10">
               <div className="w-full">
                 {/* CTA recruteurs ERP */}
                 <CarteChevauchee
@@ -472,6 +485,11 @@ export default function HomePage() {
                 </h2>
                 <p className="text-fg-muted text-base max-w-xl mx-auto">{t.builder.subtitle}</p>
               </div>
+            </div>
+
+            {/* Panneau 2 — le bloc UnCode School remonte sur le titre. */}
+            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-12 pt-10">
+              <div className="w-full">
 
               {/* Compétences Product Builder — UnCode School */}
               <div className="bg-card rounded-2xl p-6 border border-line shadow-sm mb-8">
@@ -502,10 +520,11 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
+              </div>
             </div>
 
-            {/* Panneau 2 — stack et certifications. */}
-            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-16 pt-14">
+            {/* Panneau 3 — stack et certifications. */}
+            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-12 pt-10">
               <div className="w-full">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
                 {/* Stack & compétences */}
@@ -549,13 +568,15 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Panneau 3 — le pont entre les deux mondes. */}
-            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-16 pt-14">
+            {/* Panneau 4 — le pont entre les deux mondes. */}
+            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-12 pt-10">
               <div className="w-full">
-              {/* Le pont entre les deux mondes */}
-              <div className="bg-card rounded-2xl p-6 border border-line shadow-sm mb-8">
+              {/* Le pont entre les deux mondes.
+                  Marges resserrees volontairement : ce panneau est le 4e de sa pile,
+                  donc ancre a 106 px, et depassait de 19 px a 650 px d ecran (#35). */}
+              <div className="bg-card rounded-2xl p-5 border border-line shadow-sm mb-2">
                 <h3 className="text-fg font-bold mb-2 text-center">{t.builder.bridgeTitle}</h3>
-                <p className="text-fg-muted text-sm text-center mb-6 max-w-2xl mx-auto">{t.builder.bridgeSubtitle}</p>
+                <p className="text-fg-muted text-sm text-center mb-4 max-w-2xl mx-auto">{t.builder.bridgeSubtitle}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {t.builder.bridge.map((col) => (
                     <div key={col.title} className="bg-accent/5 rounded-xl p-5 border border-accent/15">
@@ -576,8 +597,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Panneau 4 — l'appel à l'action remonte en dernier. */}
-            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-16 pt-14">
+            {/* Panneau 5 — l'appel à l'action remonte en dernier. */}
+            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-12 pt-10">
               <div className="w-full">
                 {/* CTA reconversion + CV */}
                 <CarteChevauchee
@@ -636,7 +657,7 @@ export default function HomePage() {
             </div>
 
             {/* Panneau 2 — ce qui est automatisé, ce qui ne l'est pas. */}
-            <div className="flex md:min-h-[55vh] items-center bg-surface pb-16 pt-14">
+            <div className="flex md:min-h-[55vh] items-center bg-surface pb-12 pt-10">
               <div className="w-full">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {t.method.columns.map((c) => (
@@ -692,7 +713,7 @@ export default function HomePage() {
 
             {/* Panneau 2 — remonte et recouvre le panneau 1. Sa hauteur
                 détermine la durée pendant laquelle le panneau 1 reste figé. */}
-            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-16 pt-14">
+            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-12 pt-10">
               <div className="w-full">
                 {/* Carte CTA — paiement + livrables */}
                 <CarteChevauchee
@@ -779,7 +800,7 @@ export default function HomePage() {
             </div>
 
             {/* Panneau 2 — le reste des produits remonte par-dessus. */}
-            <div className="flex md:min-h-[55vh] items-center bg-surface pb-16 pt-14">
+            <div className="flex md:min-h-[55vh] items-center bg-surface pb-12 pt-10">
               <div className="w-full">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {PRODUCTS.slice(PRODUITS_PANNEAU_1).map((product, i) => (
@@ -839,7 +860,7 @@ export default function HomePage() {
             </div>
 
             {/* Panneau 2 — les outils internes, puis le renvoi vers le catalogue. */}
-            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-16 pt-14">
+            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-12 pt-10">
               <div className="w-full">
                 <CarteChevauchee
                   className="mx-auto max-w-2xl"
@@ -886,7 +907,7 @@ export default function HomePage() {
             </div>
 
             {/* Panneau 2 — les questions. Dernier panneau : hauteur libre. */}
-            <div className="bg-surface pb-16 pt-14">
+            <div className="bg-surface pb-12 pt-10">
               <div className="space-y-3">
                 {t.faq.items.map((it) => (
                   <details

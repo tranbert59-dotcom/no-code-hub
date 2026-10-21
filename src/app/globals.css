@@ -89,6 +89,21 @@ body {
   transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease;
 }
 
+/* ── Garde-fou en hauteur pour le défilement en pile ──
+   Un panneau figé ne défile plus : ce qui dépasse la hauteur visible est
+   définitivement inaccessible. Son budget vaut la hauteur d'écran moins son
+   ancrage, lequel descend de 14 px à chaque rang dans la pile.
+
+   Sous 620 px de haut, ce budget devient trop serré pour les panneaux les plus
+   riches. On laisse alors les blocs défiler normalement : perdre l'effet coûte
+   moins cher que cacher du contenu.
+
+   Même raisonnement que le garde-fou en largeur (md:sticky) : en une colonne les
+   blocs font deux fois la hauteur d'écran. Mesuré le 21/10 — tâche #35. */
+@media (max-height: 620px) {
+  .pile-panneau { position: static !important; }
+}
+
 /* Apparition des sections au défilement — posé par <ScrollReveal /> */
 .reveal {
   opacity: 0;
