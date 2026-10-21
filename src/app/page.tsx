@@ -27,7 +27,11 @@ const SERVICE = {
 // Nombre de produits dans le premier panneau de la pile « Ce que je
 // construis » : au-delà, ils remontent par-dessus. À ajuster si la
 // liste des produits change de taille.
-const PRODUITS_PANNEAU_1 = 2
+// 0 depuis les captures (#31) : une carte illustrée fait ~350 px de plus, et
+// un panneau figé plus haut que l'écran rend son bas inaccessible (à 650 px
+// de haut : 698 px mesurés pour 586 disponibles). Le titre se fige seul ; les
+// cartes, dans le dernier panneau, n'ont pas de limite de hauteur.
+const PRODUITS_PANNEAU_1 = 0
 
 const SERVICE_EMAIL_FALLBACK = 'mailto:contact@no-code-hub.fr?subject=Analyse%20de%20mon%20projet'
 
@@ -703,7 +707,7 @@ export default function HomePage() {
       <section id="projets" className="py-20 px-6 bg-surface">
         <div className="max-w-5xl mx-auto">
           <Pile>
-            {/* Panneau 1 — les premiers produits, puis il se fige. */}
+            {/* Panneau 1 — le titre seul, qui se fige. */}
             <div className="bg-surface pb-2">
               <div className="text-center mb-10">
                 <h2 className="text-title font-extrabold text-fg mb-3">
@@ -712,11 +716,13 @@ export default function HomePage() {
                 <p className="text-fg-muted text-base max-w-md mx-auto">{t.projects.subtitle}</p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {PRODUCTS.slice(0, PRODUITS_PANNEAU_1).map((product, i) => (
-                  <ProductCard key={product.name} product={product} copy={t.projects.items[i]} labels={t.projects} />
-                ))}
-              </div>
+              {PRODUITS_PANNEAU_1 > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {PRODUCTS.slice(0, PRODUITS_PANNEAU_1).map((product, i) => (
+                    <ProductCard key={product.name} product={product} copy={t.projects.items[i]} labels={t.projects} />
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Panneau 2 — le reste des produits remonte par-dessus. */}

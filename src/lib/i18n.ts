@@ -173,6 +173,7 @@ export const DICT = {
       testView: 'Tester',
       protected: 'Accès sur identifiants',
       inDev: 'En développement',
+      screenshot: 'Capture de la page d’accueil de',
       all: 'Voir tous les produits',
       items: [
         { baseline: 'App de pronostics Coupe du Monde 2026', description: 'Groupes de pronos, classements, bot Discord, badges communauté, export Excel premium — 100 % custom.', features: ['Groupes privés entre amis ou collègues', 'Classements en direct et badges', 'Bot Discord pour la communauté', 'Export Excel des pronostics'] },
@@ -430,6 +431,7 @@ export const DICT = {
       testView: 'Try it',
       protected: 'Login required',
       inDev: 'In development',
+      screenshot: 'Screenshot of the home page of',
       all: 'See all products',
       items: [
         { baseline: '2026 World Cup prediction app', description: 'Prediction groups, leaderboards, Discord bot, community badges, premium Excel export — 100% custom.', features: ['Private groups for friends or colleagues', 'Live leaderboards and badges', 'Discord bot for the community', 'Excel export of predictions'] },

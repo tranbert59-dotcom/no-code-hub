@@ -9,6 +9,8 @@ export type ProductMeta = {
   status: ProductStatus
   stack: string[]
   icon: React.ReactNode
+  /** Capture de l'écran d'accueil (public/img/produits/…), 800×500. */
+  image?: string
 }
 
 export const PRODUCTS: ProductMeta[] = [
@@ -16,6 +18,7 @@ export const PRODUCTS: ProductMeta[] = [
     name: 'WorldCup 2026',
     href: 'https://worldcup.no-code-hub.fr',
     status: 'live',
+    image: '/img/produits/worldcup.webp',
     stack: ['FastAPI', 'Next.js 14', 'Supabase', 'Discord Bot'],
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -28,6 +31,7 @@ export const PRODUCTS: ProductMeta[] = [
     name: 'CV Creator',
     href: 'https://cv.no-code-hub.fr',
     status: 'test',
+    image: '/img/produits/cv.webp',
     stack: ['Express', 'Next.js 14', 'Prisma', 'Claude AI'],
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

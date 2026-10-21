@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import type { ProductMeta } from '@/lib/products'
 
 type Labels = {
@@ -10,6 +11,7 @@ type Labels = {
   testView: string
   protected: string
   inDev: string
+  screenshot: string
 }
 
 type Props = {
@@ -34,6 +36,21 @@ export function ProductCard({ product, copy, labels, detailed = false }: Props) 
             : 'border-line hover:border-accent/40 hover:shadow-sm opacity-90'
         }`}
     >
+      {product.image && (
+        // La capture déborde du bord supérieur de la carte (même procédé que
+        // les pastilles à cheval) : -mt-11 = le p-6 de la carte + 20 px dehors.
+        <div className="-mt-11 mb-5 overflow-hidden rounded-xl ring-1 ring-line shadow-lg">
+          <Image
+            src={product.image}
+            alt={`${labels.screenshot} ${product.name}`}
+            width={800}
+            height={500}
+            sizes="(min-width: 1024px) 400px, (min-width: 640px) 45vw, 90vw"
+            className="h-auto w-full"
+          />
+        </div>
+      )}
+
       <div className="flex items-start justify-between mb-4">
         <div className={`w-12 h-12 rounded-xl flex items-center justify-center
           ${isLive ? 'bg-green-500/10 text-green-600 dark:text-green-400'
