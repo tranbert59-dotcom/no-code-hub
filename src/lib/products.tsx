@@ -66,8 +66,8 @@ export const PRODUCTS: ProductMeta[] = [
   },
   {
     name: 'Gestion Immobilière',
-    href: null,
-    status: 'soon',
+    href: 'https://immo.no-code-hub.fr',
+    status: 'test',
     stack: ['FastAPI', 'PostgreSQL', 'MinIO', 'Next.js 15'],
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

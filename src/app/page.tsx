@@ -832,7 +832,9 @@ export default function HomePage() {
       <section id="resultats" className="py-20 px-6 bg-surface-2">
         <div className="max-w-5xl mx-auto">
           <Pile>
-            {/* Panneau 1 — les outils, avec leur état exact. */}
+            {/* Panneau 1 — le titre seul. Les 4 cartes d'outils ne tiennent pas dans un
+                panneau figé sur un écran de 650 px : elles vont dans le dernier panneau,
+                dont la hauteur est libre (même remède que #projets). */}
             <div className="bg-surface-2 pb-2">
               <div className="text-center mb-10">
                 <span className="inline-block mb-4 text-xs font-semibold uppercase tracking-widest text-accent bg-accent/10 px-4 py-1.5 rounded-full">
@@ -843,25 +845,25 @@ export default function HomePage() {
                 </h2>
                 <p className="text-fg-muted text-base max-w-xl mx-auto">{t.results.subtitle}</p>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {t.results.items.map((it) => (
-                  <div key={it.name} className="bg-card rounded-2xl p-6 border border-line shadow-sm flex flex-col">
-                    <h3 className="text-fg font-bold text-base mb-2">{it.name}</h3>
-                    <p className="text-xs font-semibold text-accent mb-1">{it.state}</p>
-                    <p className="text-xs text-fg-subtle mb-4">{it.since}</p>
-                    <p className="text-base text-fg-muted leading-relaxed mb-4 flex-1">{it.detail}</p>
-                    <p className="text-xs text-fg-subtle border-t border-line pt-3">
-                      <span className="font-semibold uppercase tracking-wide">{t.results.forLabel}</span> · {it.who}
-                    </p>
-                  </div>
-                ))}
-              </div>
             </div>
 
-            {/* Panneau 2 — les outils internes, puis le renvoi vers le catalogue. */}
+            {/* Panneau 2 — les outils avec leur état exact, les outils internes, puis le
+                renvoi vers le catalogue. */}
             <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-12 pt-10">
               <div className="w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                  {t.results.items.map((it) => (
+                    <div key={it.name} className="bg-card rounded-2xl p-6 border border-line shadow-sm flex flex-col">
+                      <h3 className="text-fg font-bold text-base mb-2">{it.name}</h3>
+                      <p className="text-xs font-semibold text-accent mb-1">{it.state}</p>
+                      <p className="text-xs text-fg-subtle mb-4">{it.since}</p>
+                      <p className="text-base text-fg-muted leading-relaxed mb-4 flex-1">{it.detail}</p>
+                      <p className="text-xs text-fg-subtle border-t border-line pt-3">
+                        <span className="font-semibold uppercase tracking-wide">{t.results.forLabel}</span> · {it.who}
+                      </p>
+                    </div>
+                  ))}
+                </div>
                 <CarteChevauchee
                   className="mx-auto max-w-2xl"
                   badge={
