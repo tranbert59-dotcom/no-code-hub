@@ -163,8 +163,9 @@ function IconeDocument({ className }: { className?: string }) {
  *  3. la pile reste plus haute que l'écran, sinon rien ne défile ;
  *  4. CHAQUE BLOC FIGÉ TIENT DANS L'ÉCRAN. Un bloc figé ne défile plus :
  *     ce qui dépasse la hauteur visible est définitivement inaccessible.
- *     D'où deux conséquences : le figement ne démarre qu'à partir de md,
- *     car en une colonne les blocs font deux fois la hauteur d'écran ; et
+ *     D'où deux conséquences : le figement ne démarre qu'à partir de lg
+ *     (1024 px) — en dessous le texte passe sur plus de lignes et les blocs
+ *     dépassent l'écran (mesuré à 900×700, #37) ; et
  *     le dernier bloc n'est jamais figé, donc sa hauteur est libre.
  */
 function Pile({
@@ -191,12 +192,12 @@ function Pile({
             // lui, le panneau figé repasserait devant celui qui monte.
             'relative',
             'pile-panneau',
-            i < children.length - 1 ? 'md:sticky' : '',
+            i < children.length - 1 ? 'lg:sticky' : '',
             // Clair : ombre portée. Sombre : lisere lumineux + halo bleu,
             // une ombre noire ne se voyant pas sur un fond noir.
             i > 0
-              ? 'md:shadow-[0_-16px_36px_-18px_rgba(2,6,23,0.22)] ' +
-                'md:dark:shadow-[0_-1px_0_0_rgba(125,211,252,0.55),0_-16px_38px_-18px_rgba(59,130,246,0.32)]'
+              ? 'lg:shadow-[0_-16px_36px_-18px_rgba(2,6,23,0.22)] ' +
+                'lg:dark:shadow-[0_-1px_0_0_rgba(125,211,252,0.55),0_-16px_38px_-18px_rgba(59,130,246,0.32)]'
               : '',
           ]
             .filter(Boolean)
@@ -473,7 +474,9 @@ export default function HomePage() {
       <section id="builder" className="py-20 px-6 bg-surface-2">
         <div className="max-w-5xl mx-auto">
 
-          <Pile>
+          {/* Pile de 5 panneaux, la plus profonde : décalage réduit et pb-10 pour que
+              le 4e tienne à 1024×650 (548 px pour 544 disponibles avant, #37). */}
+          <Pile decalage={10}>
             {/* Panneau 1 — se fige pendant que le bloc CV reconversion remonte. */}
             <div className="bg-surface-2 pb-2">
               <div className="text-center mb-10">
@@ -488,7 +491,7 @@ export default function HomePage() {
             </div>
 
             {/* Panneau 2 — le bloc UnCode School remonte sur le titre. */}
-            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-12 pt-10">
+            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-10 pt-10">
               <div className="w-full">
 
               {/* Compétences Product Builder — UnCode School */}
@@ -524,7 +527,7 @@ export default function HomePage() {
             </div>
 
             {/* Panneau 3 — stack et certifications. */}
-            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-12 pt-10">
+            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-10 pt-10">
               <div className="w-full">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
                 {/* Stack & compétences */}
@@ -569,7 +572,7 @@ export default function HomePage() {
             </div>
 
             {/* Panneau 4 — le pont entre les deux mondes. */}
-            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-12 pt-10">
+            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-10 pt-10">
               <div className="w-full">
               {/* Le pont entre les deux mondes.
                   Marges resserrees volontairement : ce panneau est le 4e de sa pile,
@@ -598,7 +601,7 @@ export default function HomePage() {
             </div>
 
             {/* Panneau 5 — l'appel à l'action remonte en dernier. */}
-            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-12 pt-10">
+            <div className="flex md:min-h-[55vh] items-center bg-surface-2 pb-10 pt-10">
               <div className="w-full">
                 {/* CTA reconversion + CV */}
                 <CarteChevauchee

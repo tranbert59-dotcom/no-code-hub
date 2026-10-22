@@ -94,13 +94,14 @@ body {
    définitivement inaccessible. Son budget vaut la hauteur d'écran moins son
    ancrage, lequel descend de 14 px à chaque rang dans la pile.
 
-   Sous 620 px de haut, ce budget devient trop serré pour les panneaux les plus
+   Sous 640 px de haut, ce budget devient trop serré pour les panneaux les plus
    riches. On laisse alors les blocs défiler normalement : perdre l'effet coûte
    moins cher que cacher du contenu.
 
-   Même raisonnement que le garde-fou en largeur (md:sticky) : en une colonne les
-   blocs font deux fois la hauteur d'écran. Mesuré le 21/10 — tâche #35. */
-@media (max-height: 620px) {
+   Même raisonnement que le garde-fou en largeur (lg:sticky) : sous 1024 px le
+   texte passe sur plus de lignes et les blocs grandissent. Mesuré le 21/10 (#35),
+   relevé de 620 à 640 le 22/10 (#37 : builder dépassait de 4 px à 1024×630). */
+@media (max-height: 640px) {
   .pile-panneau { position: static !important; }
 }
 
