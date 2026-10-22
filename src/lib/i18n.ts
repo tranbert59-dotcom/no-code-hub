@@ -219,6 +219,7 @@ export const DICT = {
       test: 'En test',
       soon: 'Bientôt',
       view: 'Voir le projet',
+      carousel: 'Projets — faites glisser pour voir les suivants',
       testView: 'Tester',
       protected: 'Accès sur identifiants',
       inDev: 'En développement',
@@ -262,6 +263,7 @@ export const DICT = {
       subtitle:
         'Expert ERP disponible pour des missions de consulting, automatisation & product building ou collaboration sur des projets SaaS.',
       ctaLinkedin: 'Me contacter sur LinkedIn',
+      thumbCta: 'Parlons de votre projet',
       form: {
         name: 'Votre nom',
         email: 'Votre email',
@@ -526,6 +528,7 @@ export const DICT = {
       test: 'In testing',
       soon: 'Soon',
       view: 'View project',
+      carousel: 'Projects — swipe to see the next ones',
       testView: 'Try it',
       protected: 'Login required',
       inDev: 'In development',
@@ -569,6 +572,7 @@ export const DICT = {
       subtitle:
         'ERP expert available for consulting, automation & product-building assignments, or collaboration on SaaS projects.',
       ctaLinkedin: 'Contact me on LinkedIn',
+      thumbCta: 'Let’s talk about your project',
       form: {
         name: 'Your name',
         email: 'Your email',

@@ -1,6 +1,6 @@
 'use client'
 
-import type { ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PRODUCTS } from '@/lib/products'
@@ -207,6 +207,126 @@ function Pile({
           {enfant}
         </div>
       ))}
+    </div>
+  )
+}
+
+/**
+ * Carrousel au doigt (#36) — sous md seulement. Les cartes défilent
+ * latéralement, chacune s'aligne seule sur la marge gauche (scroll-snap, pur
+ * CSS) et **la suivante dépasse sur le côté** : c'est ce bout de carte qui dit
+ * au visiteur qu'il peut glisser. Les points en dessous disent où il en est.
+ *
+ * À partir de md, la même liste redevient une grille à deux colonnes.
+ *
+ * Le défilement horizontal coupe aussi ce qui dépasse en hauteur : le `pt-6`
+ * laisse la place à la capture qui déborde du haut de la carte produit.
+ */
+function Carrousel({ children, label }: { children: ReactNode[]; label: string }) {
+  const piste = useRef<HTMLDivElement>(null)
+  const [actif, setActif] = useState(0)
+
+  useEffect(() => {
+    const el = piste.current
+    if (!el) return
+    const suivre = () => {
+      // La carte active est celle dont le bord gauche est le plus près de
+      // la position de défilement (les cartes s'alignent à gauche).
+      const cartes = Array.from(el.children) as HTMLElement[]
+      let meilleure = 0
+      let ecart = Infinity
+      cartes.forEach((c, i) => {
+        const e = Math.abs(c.offsetLeft - el.offsetLeft - el.scrollLeft)
+        if (e < ecart) {
+          ecart = e
+          meilleure = i
+        }
+      })
+      // Tout au bout, la dernière carte ne peut pas s'aligner à gauche.
+      if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 2) meilleure = cartes.length - 1
+      setActif(meilleure)
+    }
+    el.addEventListener('scroll', suivre, { passive: true })
+    return () => el.removeEventListener('scroll', suivre)
+  }, [])
+
+  return (
+    <div>
+      <div
+        ref={piste}
+        role="region"
+        aria-label={label}
+        tabIndex={0}
+        className={[
+          '-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-4 pt-6',
+          '[scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
+          'md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:pt-0',
+        ].join(' ')}
+      >
+        {children.map((enfant, i) => (
+          // `grid` : la carte prend toute la largeur et toute la hauteur de sa
+          // case, pour que les cartes d'une même rangée aient la même taille.
+          <div key={i} className="grid w-[85%] shrink-0 snap-start md:w-auto">
+            {enfant}
+          </div>
+        ))}
+      </div>
+      <div className="mt-2 flex justify-center gap-2 md:hidden" aria-hidden="true">
+        {children.map((_, i) => (
+          <span
+            key={i}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              i === actif ? 'w-6 bg-accent' : 'w-2 bg-line'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/**
+ * Barre d'action dans la zone du pouce (#36) — sous md seulement. Sur un
+ * téléphone tenu d'une main, le haut de l'écran est hors de portée : le bouton
+ * principal vit donc en bas. Elle n'apparaît qu'une fois l'accueil dépassé (il
+ * a déjà ses boutons) et s'efface dès que la section contact arrive à l'écran
+ * (inutile d'y renvoyer, on y est). Elle laisse la place, à droite, au bouton
+ * de discussion du kit, à la même hauteur que lui (52 px).
+ */
+function BarrePouce({ libelle }: { libelle: string }) {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const suivre = () => {
+      const contact = document.getElementById('contact')
+      const contactAtteint = contact ? contact.getBoundingClientRect().top < window.innerHeight : false
+      setVisible(window.scrollY > window.innerHeight * 0.8 && !contactAtteint)
+    }
+    suivre()
+    window.addEventListener('scroll', suivre, { passive: true })
+    window.addEventListener('resize', suivre)
+    return () => {
+      window.removeEventListener('scroll', suivre)
+      window.removeEventListener('resize', suivre)
+    }
+  }, [])
+
+  return (
+    <div
+      className={[
+        'fixed bottom-6 left-4 right-24 z-30 md:hidden transition-all duration-300',
+        visible ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-6 opacity-0',
+      ].join(' ')}
+      aria-hidden={!visible}
+    >
+      <a
+        href="#contact"
+        tabIndex={visible ? 0 : -1}
+        className="flex h-[52px] items-center justify-center gap-2 rounded-2xl bg-accent px-6 text-base font-semibold text-accent-fg shadow-lg shadow-accent/30"
+      >
+        {libelle}
+        <span aria-hidden="true">→</span>
+      </a>
     </div>
   )
 }
@@ -805,7 +925,7 @@ export default function HomePage() {
             {/* Panneau 2 — le reste des produits remonte par-dessus. */}
             <div className="flex md:min-h-[55vh] items-center bg-surface pb-12 pt-10">
               <div className="w-full">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <Carrousel label={t.projects.carousel}>
                 {PRODUCTS.slice(PRODUITS_PANNEAU_1).map((product, i) => (
                   <ProductCard
                     key={product.name}
@@ -814,7 +934,7 @@ export default function HomePage() {
                     labels={t.projects}
                   />
                 ))}
-              </div>
+              </Carrousel>
 
           <div className="text-center mt-10">
             <Link
@@ -999,6 +1119,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <BarrePouce libelle={t.contact.thumbCta} />
 
       <Footer
         siteName="NO-CODE-HUB"
