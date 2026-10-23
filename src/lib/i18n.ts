@@ -193,7 +193,7 @@ export const DICT = {
         { name: 'Gestion Immobilière', state: 'Test fermé', since: 'En ligne depuis le 24 août 2026', who: 'Propriétaires bailleurs', detail: 'Biens et locataires, quittances PDF automatiques, suivi des paiements, coffre à documents.' },
       ],
       internalTitle: 'Mes outils internes',
-      internalText: 'Un CRM privé, une source de données publiques françaises et une veille automatisée tournent en production sur le même serveur. Ils alimentent ma propre prospection et mes autres outils.',
+      internalText: 'Je travaille chaque jour avec mon propre système : un CRM, une source de données publiques françaises et une veille automatisée. Ils alimentent ma prospection et nourrissent mes autres outils — ce que je construis pour vous, je l’utilise d’abord pour moi.',
       all: 'Voir tous les produits',
     },
     faq: {
@@ -515,7 +515,7 @@ export const DICT = {
         { name: 'Property Management', state: 'Closed testing', since: 'Live since 24 August 2026', who: 'Landlords', detail: 'Properties and tenants, automatic PDF rent receipts, payment tracking, document vault.' },
       ],
       internalTitle: 'My internal tools',
-      internalText: 'A private CRM, a source of French public data and an automated watch run in production on the same server. They feed my own prospecting and my other tools.',
+      internalText: 'I work every day with my own system: a CRM, a source of French public data and an automated watch. They feed my prospecting and power my other tools — what I build for you, I use myself first.',
       all: 'See all products',
     },
     faq: {
