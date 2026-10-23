@@ -37,7 +37,7 @@ export const DICT = {
       experiences: [
         { years: '1994 – 2023', label: 'Consultant ERP / JD Edwards AS400', detail: 'Total · Bonduelle · Bureau Veritas · Reckitt · Nexity…' },
         { years: '2023 – 2024', label: 'Certifications Google', detail: 'Cybersécurité (8 modules, 83–96 %) · Project Management' },
-        { years: '2024 – auj.', label: 'Product Builder', detail: 'FastAPI · Next.js · Docker · Claude AI · VPS Hostinger' },
+        { years: '2024 – auj.', label: 'Product Builder', detail: 'FastAPI · Next.js · Docker · Claude AI' },
       ],
       stats: [
         { val: '30+', label: 'ans en SI' },
@@ -92,7 +92,7 @@ export const DICT = {
       badge: 'Reconversion · Product Builder',
       title: 'De l’ERP *à l’IA* — Product Builder',
       subtitle:
-        'Depuis 2023, je conçois, automatise et déploie des produits numériques utiles — en orchestrant no-code, automatisation, IA et code quand il le faut, de l’idée à la mise en production sur mon propre serveur.',
+        'Depuis 2023, je conçois, automatise et déploie des produits numériques utiles — en orchestrant no-code, automatisation, IA et code quand il le faut, de l’idée à la mise en production.',
       stackTitle: 'Stack & compétences',
       approachLabel: 'Approche',
       approachText:
@@ -172,7 +172,7 @@ export const DICT = {
         { n: '1', title: 'On cadre', desc: 'Je pose le besoin par écrit : le problème, les utilisateurs, ce qui doit exister à la fin. Note de cadrage, schéma de processus (BPMN), modèle de données.' },
         { n: '2', title: 'On assemble', desc: 'Base de données, interface et automatisations en no-code (Airtable, Softr, Make, n8n) ; du code (FastAPI, Next.js) quand le no-code ne suffit plus.' },
         { n: '3', title: 'On teste', desc: 'MVP d’abord : le plus petit outil utile, testé et documenté au fil de l’eau, avant d’y ajouter quoi que ce soit.' },
-        { n: '4', title: 'On met en ligne', desc: 'Déploiement sur mon propre serveur, en HTTPS, derrière nginx — comme pour mes propres outils.' },
+        { n: '4', title: 'On met en ligne', desc: 'Mise en ligne en HTTPS — chez vous, ou chez moi si nous en convenons.' },
       ],
       columns: [
         { icon: '⚙️', title: 'Ce qui est automatisé', text: 'Les tests et, sur certains de mes projets, le déploiement (GitHub Actions vers le serveur). L’IA — Claude Code — accélère l’écriture du code.' },
@@ -206,7 +206,7 @@ export const DICT = {
         { q: 'Qu’est-ce qu’un Product Builder ?', a: 'Quelqu’un qui conçoit et livre un produit numérique de bout en bout — cadrage, base de données, interface, automatisations, mise en ligne — en combinant no-code, IA et code quand il le faut.', href: '', hrefLabel: '' },
         { q: 'Quelle différence avec un développeur ?', a: 'Je choisis l’outil le plus simple qui résout le problème : no-code d’abord, code seulement quand c’est nécessaire. Je ne me présente pas comme un développeur full-stack artisan du code.', href: '', hrefLabel: '' },
         { q: 'Quels outils utilisez-vous ?', a: 'Airtable, Softr, Webflow, Figma, Notion, Make et n8n pour le no-code ; FastAPI, Next.js et PostgreSQL quand il faut du code ; Claude Code pour accélérer la construction.', href: '', hrefLabel: '' },
-        { q: 'Où sont hébergés les outils ?', a: 'Mes outils tournent sur mon propre serveur (VPS), en HTTPS. Un outil construit pour vous est hébergé chez vous — sauf si nous convenons d’autre chose.', href: '', hrefLabel: '' },
+        { q: 'Où sont hébergés les outils ?', a: 'Mes outils sont hébergés sur mon infrastructure, en HTTPS. Un outil construit pour vous est hébergé chez vous — sauf si nous convenons d’autre chose.', href: '', hrefLabel: '' },
         { q: 'Que deviennent mes données ?', a: 'Pour une demande de CV : utilisées uniquement pour répondre, conservées 6 mois puis supprimées, jamais revendues. Le détail est dans la politique de confidentialité.', href: '/politique-de-confidentialite', hrefLabel: 'Politique de confidentialité' },
         { q: 'Combien ça coûte ?', a: 'Je n’affiche pas de tarif pour l’instant : l’analyse de départ est une prestation payante dont le paiement en ligne arrive bientôt. Écrivez-moi pour connaître le prix.', href: '#contact', hrefLabel: 'Me contacter' },
         { q: 'Quel délai prévoir ?', a: 'Il dépend de la taille du besoin. Je ne l’annonce pas avant d’avoir lu votre description.', href: '', hrefLabel: '' },
@@ -224,6 +224,9 @@ export const DICT = {
       carousel: 'Projets — faites glisser pour voir les suivants',
       testView: 'Tester',
       protected: 'Accès sur identifiants',
+      testInvite: 'Test sur invitation',
+      invite: 'Demander une invitation',
+      inviteSubject: 'Demande d’invitation',
       inDev: 'En développement',
       screenshot: 'Capture de la page d’accueil de',
       all: 'Voir tous les produits',
@@ -361,7 +364,7 @@ export const DICT = {
       experiences: [
         { years: '1994 – 2023', label: 'ERP Consultant / JD Edwards AS400', detail: 'Total · Bonduelle · Bureau Veritas · Reckitt · Nexity…' },
         { years: '2023 – 2024', label: 'Google Certifications', detail: 'Cybersecurity (8 modules, 83–96%) · Project Management' },
-        { years: '2024 – now', label: 'Product Builder', detail: 'FastAPI · Next.js · Docker · Claude AI · Hostinger VPS' },
+        { years: '2024 – now', label: 'Product Builder', detail: 'FastAPI · Next.js · Docker · Claude AI' },
       ],
       stats: [
         { val: '30+', label: 'years in IT' },
@@ -416,7 +419,7 @@ export const DICT = {
       badge: 'Career change · Product Builder',
       title: 'From ERP *to AI* — Product Builder',
       subtitle:
-        'Since 2023 I design, automate and deploy useful digital products — orchestrating no-code, automation, AI and code when needed, from idea to production on my own server.',
+        'Since 2023 I design, automate and deploy useful digital products — orchestrating no-code, automation, AI and code when needed, from idea to production.',
       stackTitle: 'Stack & skills',
       approachLabel: 'Approach',
       approachText:
@@ -496,7 +499,7 @@ export const DICT = {
         { n: '1', title: 'Scope', desc: 'I write the need down: the problem, the users, what must exist at the end. Scoping note, process diagram (BPMN), data model.' },
         { n: '2', title: 'Assemble', desc: 'Database, interface and automations in no-code (Airtable, Softr, Make, n8n); code (FastAPI, Next.js) when no-code is no longer enough.' },
         { n: '3', title: 'Test', desc: 'MVP first: the smallest useful tool, tested and documented as I go, before adding anything to it.' },
-        { n: '4', title: 'Go live', desc: 'Deployed on my own server, over HTTPS, behind nginx — the same way as my own tools.' },
+        { n: '4', title: 'Go live', desc: 'Goes live over HTTPS — on your side, or on mine if we agree.' },
       ],
       columns: [
         { icon: '⚙️', title: 'What is automated', text: 'Tests and, on some of my projects, deployment (GitHub Actions to the server). AI — Claude Code — speeds up writing the code.' },
@@ -530,7 +533,7 @@ export const DICT = {
         { q: 'What is a Product Builder?', a: 'Someone who designs and delivers a digital product end to end — scoping, database, interface, automations, going live — combining no-code, AI and code when needed.', href: '', hrefLabel: '' },
         { q: 'How is that different from a developer?', a: 'I pick the simplest tool that solves the problem: no-code first, code only when necessary. I do not present myself as a full-stack developer who hand-writes everything.', href: '', hrefLabel: '' },
         { q: 'Which tools do you use?', a: 'Airtable, Softr, Webflow, Figma, Notion, Make and n8n for no-code; FastAPI, Next.js and PostgreSQL when code is needed; Claude Code to speed up building.', href: '', hrefLabel: '' },
-        { q: 'Where are the tools hosted?', a: 'My tools run on my own server (VPS), over HTTPS. A tool built for you is hosted on your side — unless we agree otherwise.', href: '', hrefLabel: '' },
+        { q: 'Where are the tools hosted?', a: 'My tools are hosted on my own infrastructure, over HTTPS. A tool built for you is hosted on your side — unless we agree otherwise.', href: '', hrefLabel: '' },
         { q: 'What happens to my data?', a: 'For a résumé request: used only to answer you, kept for 6 months then deleted, never resold. Details are in the privacy policy.', href: '/politique-de-confidentialite', hrefLabel: 'Privacy policy' },
         { q: 'How much does it cost?', a: 'I do not publish a price yet: the starting analysis is a paid service whose online payment is coming soon. Write to me to get the price.', href: '#contact', hrefLabel: 'Contact me' },
         { q: 'How long does it take?', a: 'It depends on the size of the need. I do not give a timeframe before reading your description.', href: '', hrefLabel: '' },
@@ -548,6 +551,9 @@ export const DICT = {
       carousel: 'Projects — swipe to see the next ones',
       testView: 'Try it',
       protected: 'Login required',
+      testInvite: 'Testing by invitation',
+      invite: 'Request an invitation',
+      inviteSubject: 'Invitation request',
       inDev: 'In development',
       screenshot: 'Screenshot of the home page of',
       all: 'See all products',

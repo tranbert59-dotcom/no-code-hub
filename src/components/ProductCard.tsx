@@ -10,6 +10,9 @@ type Labels = {
   view: string
   testView: string
   protected: string
+  testInvite: string
+  invite: string
+  inviteSubject: string
   inDev: string
   screenshot: string
 }
@@ -66,7 +69,7 @@ export function ProductCard({ product, copy, labels, detailed = false }: Props) 
         ) : isTest ? (
           <span className="flex items-center gap-1.5 text-xs font-semibold text-amber-700 dark:text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-            {labels.test}
+            {product.invitation ? labels.testInvite : labels.test}
           </span>
         ) : (
           <span className="text-xs font-medium text-fg-subtle bg-card-2/60 px-3 py-1 rounded-full">
@@ -115,7 +118,14 @@ export function ProductCard({ product, copy, labels, detailed = false }: Props) 
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </a>
-          {isTest && (
+          {isTest && product.invitation ? (
+            <a
+              href={`mailto:contact@no-code-hub.fr?subject=${encodeURIComponent(`${labels.inviteSubject} — ${product.name}`)}`}
+              className="inline-flex items-center gap-1 text-xs font-semibold text-accent underline underline-offset-2 hover:text-accent-hover"
+            >
+              {labels.invite} <span aria-hidden="true">→</span>
+            </a>
+          ) : isTest && (
             <span className="inline-flex items-center gap-1 text-xs text-fg-subtle">
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />

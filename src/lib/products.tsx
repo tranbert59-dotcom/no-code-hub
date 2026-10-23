@@ -11,6 +11,8 @@ export type ProductMeta = {
   icon: React.ReactNode
   /** Capture de l'écran d'accueil (public/img/produits/…), 800×500. */
   image?: string
+  /** Test sur invitation : on entre en écrivant à Bertrand (décision BC du 23/10). */
+  invitation?: boolean
 }
 
 export const PRODUCTS: ProductMeta[] = [
@@ -44,6 +46,7 @@ export const PRODUCTS: ProductMeta[] = [
     name: 'Élection 2027',
     href: 'https://civic.no-code-hub.fr',
     status: 'test',
+    invitation: true,
     stack: ['FastAPI', 'Next.js 15', 'Leaflet'],
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -68,6 +71,7 @@ export const PRODUCTS: ProductMeta[] = [
     name: 'Gestion Immobilière',
     href: 'https://immo.no-code-hub.fr',
     status: 'test',
+    invitation: true,
     stack: ['FastAPI', 'PostgreSQL', 'MinIO', 'Next.js 15'],
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
