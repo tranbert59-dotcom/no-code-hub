@@ -136,3 +136,17 @@ body {
 .blog-prose pre { background: rgb(var(--card-2)); padding: 1em; border-radius: 0.75em; overflow-x: auto; }
 .blog-prose pre code { background: none; padding: 0; }
 .blog-prose hr { border-color: rgb(var(--line)); margin: 2.5em 0; }
+
+/* ── Pied de page figé du téléphone (PiedMobile, décision BC du 23/10) ─────────
+   Sous md, une barre basse de 4rem reste à l'écran. Trois conséquences, posées ici
+   parce que le kit ne se modifie pas dans ce dépôt :
+   1. le bas de page garde 4rem de marge, sinon la barre cache la fin du contenu ;
+   2. le pied de page du kit est masqué (PiedMobile le remplace) — il reste dans la
+      page, car son bouton « Gérer mes cookies » est celui qu'écoute la bannière ;
+   3. la bulle de discussion du kit et sa fenêtre remontent au-dessus de la barre. */
+@media (max-width: 767px) {
+  body { padding-bottom: calc(4rem + env(safe-area-inset-bottom)); }
+  footer.bg-gray-950 { display: none; }
+  .kit-chat .fixed.bottom-6  { bottom: calc(5rem + env(safe-area-inset-bottom)); }
+  .kit-chat .fixed.bottom-20 { bottom: calc(9rem + env(safe-area-inset-bottom)); }
+}

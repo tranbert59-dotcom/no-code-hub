@@ -212,10 +212,11 @@ function Pile({
 }
 
 /**
- * Carrousel au doigt (#36) — sous md seulement. Les cartes défilent
- * latéralement, chacune s'aligne seule sur la marge gauche (scroll-snap, pur
- * CSS) et **la suivante dépasse sur le côté** : c'est ce bout de carte qui dit
- * au visiteur qu'il peut glisser. Les points en dessous disent où il en est.
+ * Carrousel au doigt (#36) — sous md seulement. Une carte à la fois, **en
+ * entier**, sans rien voir des voisines (décision BC du 23/10, qui a écarté la
+ * carte suivante qui dépasse) : on glisse, la carte se cale seule (scroll-snap,
+ * pur CSS). Les points en dessous disent où on en est et qu'il y en a d'autres.
+ * La piste a exactement la largeur d'une carte : ce qui dépasse est coupé net.
  *
  * À partir de md, la même liste redevient une grille à deux colonnes.
  *
@@ -231,7 +232,7 @@ function Carrousel({ children, label }: { children: ReactNode[]; label: string }
     if (!el) return
     const suivre = () => {
       // La carte active est celle dont le bord gauche est le plus près de
-      // la position de défilement (les cartes s'alignent à gauche).
+      // la position de défilement.
       const cartes = Array.from(el.children) as HTMLElement[]
       let meilleure = 0
       let ecart = Infinity
@@ -242,8 +243,6 @@ function Carrousel({ children, label }: { children: ReactNode[]; label: string }
           meilleure = i
         }
       })
-      // Tout au bout, la dernière carte ne peut pas s'aligner à gauche.
-      if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 2) meilleure = cartes.length - 1
       setActif(meilleure)
     }
     el.addEventListener('scroll', suivre, { passive: true })
@@ -258,15 +257,15 @@ function Carrousel({ children, label }: { children: ReactNode[]; label: string }
         aria-label={label}
         tabIndex={0}
         className={[
-          '-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-4 pt-6',
+          'flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 pt-6',
           '[scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
-          'md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:pt-0',
+          'md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:pb-0 md:pt-0',
         ].join(' ')}
       >
         {children.map((enfant, i) => (
           // `grid` : la carte prend toute la largeur et toute la hauteur de sa
           // case, pour que les cartes d'une même rangée aient la même taille.
-          <div key={i} className="grid w-[85%] shrink-0 snap-start md:w-auto">
+          <div key={i} className="grid w-full shrink-0 snap-start md:w-auto">
             {enfant}
           </div>
         ))}
@@ -281,52 +280,6 @@ function Carrousel({ children, label }: { children: ReactNode[]; label: string }
           />
         ))}
       </div>
-    </div>
-  )
-}
-
-/**
- * Barre d'action dans la zone du pouce (#36) — sous md seulement. Sur un
- * téléphone tenu d'une main, le haut de l'écran est hors de portée : le bouton
- * principal vit donc en bas. Elle n'apparaît qu'une fois l'accueil dépassé (il
- * a déjà ses boutons) et s'efface dès que la section contact arrive à l'écran
- * (inutile d'y renvoyer, on y est). Elle laisse la place, à droite, au bouton
- * de discussion du kit, à la même hauteur que lui (52 px).
- */
-function BarrePouce({ libelle }: { libelle: string }) {
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const suivre = () => {
-      const contact = document.getElementById('contact')
-      const contactAtteint = contact ? contact.getBoundingClientRect().top < window.innerHeight : false
-      setVisible(window.scrollY > window.innerHeight * 0.8 && !contactAtteint)
-    }
-    suivre()
-    window.addEventListener('scroll', suivre, { passive: true })
-    window.addEventListener('resize', suivre)
-    return () => {
-      window.removeEventListener('scroll', suivre)
-      window.removeEventListener('resize', suivre)
-    }
-  }, [])
-
-  return (
-    <div
-      className={[
-        'fixed bottom-6 left-4 right-24 z-30 md:hidden transition-all duration-300',
-        visible ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-6 opacity-0',
-      ].join(' ')}
-      aria-hidden={!visible}
-    >
-      <a
-        href="#contact"
-        tabIndex={visible ? 0 : -1}
-        className="flex h-[52px] items-center justify-center gap-2 rounded-2xl bg-accent px-6 text-base font-semibold text-accent-fg shadow-lg shadow-accent/30"
-      >
-        {libelle}
-        <span aria-hidden="true">→</span>
-      </a>
     </div>
   )
 }
@@ -1119,8 +1072,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <BarrePouce libelle={t.contact.thumbCta} />
 
       <Footer
         siteName="NO-CODE-HUB"

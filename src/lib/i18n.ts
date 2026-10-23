@@ -263,7 +263,6 @@ export const DICT = {
       subtitle:
         'Expert ERP disponible pour des missions de consulting, automatisation & product building ou collaboration sur des projets SaaS.',
       ctaLinkedin: 'Me contacter sur LinkedIn',
-      thumbCta: 'Parlons de votre projet',
       form: {
         name: 'Votre nom',
         email: 'Votre email',
@@ -309,6 +308,20 @@ export const DICT = {
     },
     footer: {
       baseline: 'Des outils no-code pour créer, analyser, organiser.',
+    },
+    mobileFooter: {
+      navLabel: 'Pied de page',
+      legal: 'Légal',
+      contact: 'Contact',
+      menu: 'Menu',
+      close: 'Fermer',
+      legalNotice: 'Mentions légales',
+      privacy: 'Politique de confidentialité',
+      cookies: 'Cookies',
+      cgv: 'CGV',
+      cgu: 'CGU',
+      manageCookies: 'Gérer mes cookies',
+      writeMessage: 'Écrire un message',
     },
   },
 
@@ -572,7 +585,6 @@ export const DICT = {
       subtitle:
         'ERP expert available for consulting, automation & product-building assignments, or collaboration on SaaS projects.',
       ctaLinkedin: 'Contact me on LinkedIn',
-      thumbCta: 'Let’s talk about your project',
       form: {
         name: 'Your name',
         email: 'Your email',
@@ -618,6 +630,20 @@ export const DICT = {
     },
     footer: {
       baseline: 'No-code tools to create, analyze, organize.',
+    },
+    mobileFooter: {
+      navLabel: 'Footer',
+      legal: 'Legal',
+      contact: 'Contact',
+      menu: 'Menu',
+      close: 'Close',
+      legalNotice: 'Legal notice',
+      privacy: 'Privacy policy',
+      cookies: 'Cookies',
+      cgv: 'Terms of sale',
+      cgu: 'Terms of use',
+      manageCookies: 'Manage my cookies',
+      writeMessage: 'Write a message',
     },
   },
 }

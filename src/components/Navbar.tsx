@@ -36,7 +36,7 @@ export function Navbar() {
     <nav className="sticky top-0 z-30 bg-surface-2/90 backdrop-blur-sm border-b border-line">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="group" onClick={close}>
-          <Logo textClassName="group-hover:text-accent transition-colors text-lg" />
+          <Logo textClassName="group-hover:text-accent transition-colors text-lg whitespace-nowrap" />
         </Link>
 
         {/* Nav desktop */}

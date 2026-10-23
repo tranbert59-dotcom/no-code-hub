@@ -4,6 +4,7 @@ import './globals.css'
 import { CookieBanner } from '@/components/kit/CookieBanner'
 import { ChatWidget } from '@/components/kit/ChatWidget'
 import { ScrollReveal } from '@/components/ScrollReveal'
+import { PiedMobile } from '@/components/PiedMobile'
 import { ThemeProvider, NO_FLASH_SCRIPT } from '@/lib/theme'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -50,11 +51,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <ScrollReveal />
           <CookieBanner />
-          <ChatWidget
-            siteName="NO-CODE-HUB"
-            greeting="Bonjour ! Je suis là pour vous aider à découvrir les outils NO-CODE-HUB. Que cherchez-vous ?"
-            email="contact@no-code-hub.fr"
-          />
+          {/* `kit-chat` : sert à remonter la bulle au-dessus du pied de page figé du
+              téléphone (globals.css) sans toucher au kit. */}
+          <div className="kit-chat">
+            <ChatWidget
+              siteName="NO-CODE-HUB"
+              greeting="Bonjour ! Je suis là pour vous aider à découvrir les outils NO-CODE-HUB. Que cherchez-vous ?"
+              email="contact@no-code-hub.fr"
+            />
+          </div>
+          <PiedMobile />
         </ThemeProvider>
       </body>
     </html>
