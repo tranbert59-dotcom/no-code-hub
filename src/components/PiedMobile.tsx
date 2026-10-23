@@ -119,9 +119,9 @@ export function PiedMobile() {
           {ouvert === 'contact' && (
             <ul>
               <li>
-                <a href="/#contact" className={`${lien} font-semibold text-accent`} onClick={fermer}>
+                <Link href="/#contact" className={`${lien} font-semibold text-accent`} onClick={fermer}>
                   {m.writeMessage} <span aria-hidden="true">→</span>
-                </a>
+                </Link>
               </li>
               <li>
                 <a href={`mailto:${EMAIL}`} className={lien}>
@@ -140,9 +140,9 @@ export function PiedMobile() {
             <ul>
               {sections.map((s) => (
                 <li key={s.href}>
-                  <a href={s.href} className={lien} onClick={fermer}>
+                  <Link href={s.href} className={lien} onClick={fermer}>
                     {s.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
