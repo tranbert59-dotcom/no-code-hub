@@ -180,6 +180,7 @@ export const DICT = {
         { icon: '🤝', title: 'De votre côté', text: 'Décrire votre problème, répondre aux questions de cadrage, essayer ce que je livre et me dire ce qui ne va pas.' },
       ],
       cta: 'Voir la prestation',
+      carousel: 'Étapes — faites glisser pour voir les suivantes',
     },
     results: {
       badge: 'Preuves',
@@ -313,6 +314,11 @@ export const DICT = {
     },
     footer: {
       baseline: 'Des outils no-code pour créer, analyser, organiser.',
+    },
+    cvPill: {
+      open: 'Télécharger un CV',
+      title: 'Mes CV',
+      close: 'Fermer',
     },
     mobileFooter: {
       navLabel: 'Pied de page',
@@ -507,6 +513,7 @@ export const DICT = {
         { icon: '🤝', title: 'On your side', text: 'Describe your problem, answer the scoping questions, try what I deliver and tell me what is wrong.' },
       ],
       cta: 'See the service',
+      carousel: 'Steps — swipe to see the next ones',
     },
     results: {
       badge: 'Proof',
@@ -640,6 +647,11 @@ export const DICT = {
     },
     footer: {
       baseline: 'No-code tools to create, analyze, organize.',
+    },
+    cvPill: {
+      open: 'Download a résumé',
+      title: 'My résumés',
+      close: 'Close',
     },
     mobileFooter: {
       navLabel: 'Footer',

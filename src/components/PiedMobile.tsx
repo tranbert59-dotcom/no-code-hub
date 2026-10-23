@@ -4,6 +4,7 @@ import { useEffect, useState, type ReactNode } from 'react'
 import Link from 'next/link'
 import { useTheme } from '@/lib/theme'
 import { useDict } from '@/lib/i18n'
+import { LogoN } from '@/components/Logo'
 
 const LINKEDIN_URL = 'https://www.linkedin.com/in/bertrand-cabanes-1965b211/'
 const EMAIL = 'contact@no-code-hub.fr'
@@ -15,7 +16,7 @@ type Onglet = 'legal' | 'contact' | 'menu'
  *
  * Une barre basse à trois onglets, comme la barre de Tinder : Légal · Contact ·
  * Menu. Un appui fait monter un panneau avec la liste, la marque en tête
- * (logo, nom, accroche — comme le pied de page de cv-creator). Un second appui,
+ * (le N du logo, nom, accroche — comme le pied de page de cv-creator). Un second appui,
  * un appui hors du panneau ou Échap le referment.
  *
  * Il remplace sur téléphone le pied de page du kit (masqué par globals.css) :
@@ -66,7 +67,7 @@ export function PiedMobile() {
           type="button"
           aria-label={m.close}
           onClick={fermer}
-          className="fixed inset-0 z-40 bg-slate-950/40 backdrop-blur-[1px]"
+          className="fixed inset-0 z-30 bg-slate-950/40 backdrop-blur-[1px]"
         />
       )}
 
@@ -75,17 +76,12 @@ export function PiedMobile() {
           id="pied-mobile-panneau"
           role="dialog"
           aria-label={m[ouvert]}
-          className="fixed inset-x-0 z-50 max-h-[70vh] overflow-y-auto rounded-t-3xl border-t border-line bg-surface px-4 pb-4 pt-5 shadow-2xl"
+          className="fixed inset-x-0 z-40 max-h-[70vh] overflow-y-auto rounded-t-3xl border-t border-line bg-surface px-4 pb-4 pt-5 shadow-2xl"
           style={{ bottom: 'calc(4rem + env(safe-area-inset-bottom))' }}
         >
           {/* La marque en tête, comme le pied de page de cv-creator. */}
           <div className="mb-4 flex items-center gap-3 border-b border-line px-4 pb-4">
-            <span
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-sm font-bold tracking-tight text-accent-fg"
-              aria-hidden="true"
-            >
-              NH
-            </span>
+            <LogoN className="h-10 w-10 shrink-0" />
             <span>
               <span className="block font-bold text-fg">NO-CODE-HUB</span>
               <span className="block text-sm leading-snug text-fg-muted">{t.footer.baseline}</span>
@@ -152,7 +148,8 @@ export function PiedMobile() {
 
       <nav
         aria-label={m.navLabel}
-        className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-surface/95 backdrop-blur-sm"
+        // z-40 : sous les fenêtres modales (z-50 — formulaire CV, cookies), qui doivent la recouvrir.
+        className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 backdrop-blur-sm"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
         <div className="grid h-16 grid-cols-3">

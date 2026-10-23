@@ -11,6 +11,8 @@ import { useTheme } from '@/lib/theme'
 import { useDict } from '@/lib/i18n'
 import ContactForm from '@/components/ContactForm'
 import { CvRequestButton } from '@/components/CvRequestButton'
+import { PastilleCv } from '@/components/PastilleCv'
+import type { ProductMeta } from '@/lib/products'
 
 const LINKEDIN_URL = 'https://www.linkedin.com/in/bertrand-cabanes-1965b211/'
 
@@ -212,6 +214,67 @@ function Pile({
 }
 
 /**
+ * Carte projet du téléphone (décision BC du 23/10) — même gabarit que les
+ * cartes de la méthode : un carré numéroté à cheval sur le bord, le nom, l'état,
+ * une phrase, un lien. Pas de capture ni de pile technique : sur un petit
+ * écran, la carte complète faisait deux fois la hauteur d'une étape.
+ */
+function CarteProjet({
+  n,
+  product,
+  baseline,
+  labels,
+}: {
+  n: number
+  product: ProductMeta
+  baseline: string
+  labels: {
+    live: string
+    test: string
+    soon: string
+    view: string
+    testView: string
+    testInvite: string
+    invite: string
+    inviteSubject: string
+    inDev: string
+  }
+}) {
+  const etat =
+    product.status === 'live'
+      ? labels.live
+      : product.status === 'test'
+        ? product.invitation
+          ? labels.testInvite
+          : labels.test
+        : labels.soon
+  const lien = 'mt-3 inline-block text-sm font-semibold text-accent underline underline-offset-2 hover:text-accent-hover'
+  return (
+    // min-h : la hauteur d'une carte de la méthode (216 px à 375 px de large), pour que
+    // les deux carrousels aient des cartes de même taille.
+    <CarteChevauchee className="min-h-[13.5rem]" badge={<Pastille>{n}</Pastille>}>
+      <h3 className="text-fg font-semibold text-base mb-1">{product.name}</h3>
+      <p className="text-xs font-semibold uppercase tracking-wide text-fg-subtle mb-2">{etat}</p>
+      <p className="text-fg-muted text-base leading-relaxed">{baseline}</p>
+      {product.invitation ? (
+        <a
+          href={`mailto:contact@no-code-hub.fr?subject=${encodeURIComponent(`${labels.inviteSubject} — ${product.name}`)}`}
+          className={lien}
+        >
+          {labels.invite} <span aria-hidden="true">→</span>
+        </a>
+      ) : product.href ? (
+        <a href={product.href} target="_blank" rel="noopener noreferrer" className={lien}>
+          {product.status === 'test' ? labels.testView : labels.view} <span aria-hidden="true">↗</span>
+        </a>
+      ) : (
+        <p className="mt-3 text-sm italic text-fg-subtle">{labels.inDev}</p>
+      )}
+    </CarteChevauchee>
+  )
+}
+
+/**
  * Carrousel au doigt (#36) — sous md seulement. Une carte à la fois, **en
  * entier**, sans rien voir des voisines (décision BC du 23/10, qui a écarté la
  * carte suivante qui dépasse) : on glisse, la carte se cale seule (scroll-snap,
@@ -223,7 +286,16 @@ function Pile({
  * Le défilement horizontal coupe aussi ce qui dépasse en hauteur : le `pt-6`
  * laisse la place à la capture qui déborde du haut de la carte produit.
  */
-function Carrousel({ children, label }: { children: ReactNode[]; label: string }) {
+function Carrousel({
+  children,
+  label,
+  grille = 'md:grid-cols-2 md:gap-6',
+}: {
+  children: ReactNode[]
+  label: string
+  /** Disposition à partir de md, où le carrousel redevient une grille. */
+  grille?: string
+}) {
   const piste = useRef<HTMLDivElement>(null)
   const [actif, setActif] = useState(0)
 
@@ -259,7 +331,7 @@ function Carrousel({ children, label }: { children: ReactNode[]; label: string }
         className={[
           'flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 pt-6',
           '[scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
-          'md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:pb-0 md:pt-0',
+          `md:grid ${grille} md:overflow-visible md:pb-0 md:pt-0`,
         ].join(' ')}
       >
         {children.map((enfant, i) => (
@@ -722,14 +794,14 @@ export default function HomePage() {
                 <p className="text-fg-muted text-base max-w-xl mx-auto">{t.method.subtitle}</p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Carrousel label={t.method.carousel} grille="md:grid-cols-2 lg:grid-cols-4 md:gap-4">
                 {t.method.steps.map((s) => (
                   <CarteChevauchee key={s.n} badge={<Pastille>{s.n}</Pastille>}>
                     <h3 className="text-fg font-semibold text-base mb-1">{s.title}</h3>
                     <p className="text-fg-muted text-base leading-relaxed">{s.desc}</p>
                   </CarteChevauchee>
                 ))}
-              </div>
+              </Carrousel>
             </div>
 
             {/* Panneau 2 — ce qui est automatisé, ce qui ne l'est pas. */}
@@ -880,12 +952,23 @@ export default function HomePage() {
               <div className="w-full">
               <Carrousel label={t.projects.carousel}>
                 {PRODUCTS.slice(PRODUITS_PANNEAU_1).map((product, i) => (
-                  <ProductCard
-                    key={product.name}
-                    product={product}
-                    copy={t.projects.items[i + PRODUITS_PANNEAU_1]}
-                    labels={t.projects}
-                  />
+                  <div key={product.name} className="contents">
+                    <div className="grid md:hidden">
+                      <CarteProjet
+                        n={i + PRODUITS_PANNEAU_1 + 1}
+                        product={product}
+                        baseline={t.projects.items[i + PRODUITS_PANNEAU_1].baseline}
+                        labels={t.projects}
+                      />
+                    </div>
+                    <div className="hidden md:grid">
+                      <ProductCard
+                        product={product}
+                        copy={t.projects.items[i + PRODUITS_PANNEAU_1]}
+                        labels={t.projects}
+                      />
+                    </div>
+                  </div>
                 ))}
               </Carrousel>
 
@@ -1082,6 +1165,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <PastilleCv />
 
       <Footer
         siteName="NO-CODE-HUB"

@@ -66,7 +66,8 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? t.settings.closeMenu : t.settings.openMenu}
             aria-expanded={open}
-            className="inline-flex items-center justify-center w-10 h-10 -mr-2 rounded-lg text-fg-muted hover:text-fg hover:bg-surface-3 transition-colors"
+            // Masqué sur téléphone : le pied de page figé porte le menu (décision BC du 23/10).
+            className="hidden md:inline-flex items-center justify-center w-10 h-10 -mr-2 rounded-lg text-fg-muted hover:text-fg hover:bg-surface-3 transition-colors"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               {open ? (

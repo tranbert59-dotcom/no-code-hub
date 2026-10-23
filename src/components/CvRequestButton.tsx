@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState, type FormEvent } from 'react'
+import { createPortal } from 'react-dom'
 import { useTheme } from '@/lib/theme'
 import { useDict } from '@/lib/i18n'
 
@@ -101,7 +102,9 @@ export function CvRequestButton({
         {label}
       </button>
 
-      {open && (
+      {/* Portail vers <body> : la fenêtre ne dépend plus du conteneur du bouton
+          (la pastille CV du téléphone la place dans un bloc fixe de faible z-index). */}
+      {open && createPortal(
         <div
           className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
           role="dialog"
@@ -282,7 +285,8 @@ export function CvRequestButton({
               </form>
             )}
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   )
