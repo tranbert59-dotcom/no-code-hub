@@ -932,7 +932,17 @@ export default function HomePage() {
                     <div key={it.name} className="bg-card rounded-2xl p-6 border border-line shadow-sm flex flex-col">
                       <h3 className="text-fg font-bold text-base mb-2">{it.name}</h3>
                       <p className="text-xs font-semibold text-accent mb-1">{it.state}</p>
-                      <p className="text-xs text-fg-subtle mb-4">{it.since}</p>
+                      {it.invite ? (
+                        // Test sur invitation : on entre en écrivant à Bertrand (décision BC du 23/10).
+                        <a
+                          href={`mailto:contact@no-code-hub.fr?subject=${encodeURIComponent(`${t.results.inviteSubject} — ${it.name}`)}`}
+                          className="self-start text-xs font-semibold text-accent underline underline-offset-2 hover:text-accent-hover mb-4"
+                        >
+                          {t.results.inviteCta} <span aria-hidden="true">→</span>
+                        </a>
+                      ) : (
+                        <p className="text-xs text-fg-subtle mb-4">{it.since}</p>
+                      )}
                       <p className="text-base text-fg-muted leading-relaxed mb-4 flex-1">{it.detail}</p>
                       <p className="text-xs text-fg-subtle border-t border-line pt-3">
                         <span className="font-semibold uppercase tracking-wide">{t.results.forLabel}</span> · {it.who}
