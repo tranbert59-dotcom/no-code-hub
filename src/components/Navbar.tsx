@@ -40,7 +40,7 @@ export function Navbar() {
         </Link>
 
         {/* Nav desktop */}
-        <div className="hidden md:flex items-center gap-5 text-sm text-fg-muted">
+        <div className="hidden lg:flex items-center gap-5 text-sm text-fg-muted">
           {links.map((l) => (
             <a key={l.href} href={l.href} className={`${l.accent} transition-colors`}>
               {l.label}
@@ -59,7 +59,7 @@ export function Navbar() {
         </div>
 
         {/* Contrôles + hamburger (mobile) */}
-        <div className="flex md:hidden items-center gap-1">
+        <div className="flex lg:hidden items-center gap-1">
           <SettingsControls />
           <button
             type="button"
@@ -81,7 +81,7 @@ export function Navbar() {
 
       {/* Panneau mobile déroulant */}
       {open && (
-        <div className="md:hidden border-t border-line bg-surface-2/95 backdrop-blur-sm">
+        <div className="lg:hidden border-t border-line bg-surface-2/95 backdrop-blur-sm">
           <div className="px-6 py-4 flex flex-col">
             {links.map((l) => (
               <a
