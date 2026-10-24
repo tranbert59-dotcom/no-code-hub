@@ -314,6 +314,24 @@ export const DICT = {
     },
     footer: {
       baseline: 'Des outils no-code pour créer, analyser, organiser.',
+      // Textes du pied de page du kit (synchronisé depuis cv-creator le 24/10/2026)
+      legal: 'Légal',
+      products: 'Produits',
+      projects: 'Projets',
+      statusTesting: 'en test',
+      statusDev: 'en dev',
+      statusInvite: 'sur invitation',
+      contact: 'Contact',
+      manageCookies: 'Gérer mes cookies',
+      rights: 'Tous droits réservés.',
+      madeWith: 'Fait avec soin · France',
+      links: {
+        legalNotice: 'Mentions légales',
+        privacy: 'Politique de confidentialité',
+        cookies: 'Cookies',
+        cgv: 'CGV',
+        cgu: 'CGU',
+      },
     },
     cvPill: {
       open: 'Télécharger un CV',
@@ -647,6 +665,24 @@ export const DICT = {
     },
     footer: {
       baseline: 'No-code tools to create, analyze, organize.',
+      // Kit footer texts (synced from cv-creator on 24/10/2026)
+      legal: 'Legal',
+      products: 'Products',
+      projects: 'Projects',
+      statusTesting: 'in testing',
+      statusDev: 'in dev',
+      statusInvite: 'by invitation',
+      contact: 'Contact',
+      manageCookies: 'Manage my cookies',
+      rights: 'All rights reserved.',
+      madeWith: 'Crafted with care · France',
+      links: {
+        legalNotice: 'Legal notice',
+        privacy: 'Privacy policy',
+        cookies: 'Cookies',
+        cgv: 'Terms of sale',
+        cgu: 'Terms of use',
+      },
     },
     cvPill: {
       open: 'Download a résumé',

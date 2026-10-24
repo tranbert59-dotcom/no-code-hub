@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Footer } from './Footer'
+import { LogoN } from '@/components/Logo'
 
 export function LegalPageLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -14,6 +15,7 @@ export function LegalPageLayout({ children }: { children: React.ReactNode }) {
         siteName="NO-CODE-HUB"
         baseline="Des outils no-code pour créer, analyser, organiser."
         contact={{ email: 'contact@no-code-hub.fr' }}
+        logo={<LogoN className="h-8 w-8" />}
       />
     </div>
   )

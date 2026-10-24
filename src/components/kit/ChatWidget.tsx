@@ -23,13 +23,13 @@ const DEFAULT_QUICK_LINKS = [
 
 const FAQ: Record<string, string> = {
   '🛠️ Quels outils proposez-vous ?':
-    "NO-CODE-HUB propose CV Creator (CV professionnel), CyberHub (cybersécurité), Gestion Immobilière (biens locatifs) et Video Analyzer (analyse vidéo par IA).",
+    "En ligne : CV Creator (CV et candidature avec l'IA, en bêta) et WorldCup 2026 (pronostics, édition terminée). En test sur invitation : Élection 2027 et Gestion Immobilière.",
   '💡 C\'est quoi le no-code ?':
     "Le no-code permet de créer et automatiser des processus métiers sans écrire de code. Nos outils sont conçus pour être accessibles à tous les professionnels.",
   '🔒 Mes données sont-elles sécurisées ?':
     "Oui ! Nos données sont hébergées en Europe, nous respectons le RGPD et utilisons des protocoles de sécurité modernes.",
   '🚀 Comment démarrer ?':
-    "Cliquez sur \"Découvrir les outils\" pour explorer nos produits. Chaque outil dispose d'un accès gratuit ou d'une période d'essai.",
+    "Parcourez « Ce que je construis » sur la page d'accueil, puis écrivez-moi via le formulaire de contact pour parler de votre projet.",
   '✉️ Contacter le support':
     '__email__',
 }
@@ -88,7 +88,7 @@ export function ChatWidget({
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? 'Fermer le chat' : 'Ouvrir le chat'}
         aria-expanded={open}
-        className="fixed bottom-6 right-6 z-40 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all flex items-center justify-center focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:outline-none"
+        className="kit-chat-btn fixed bottom-6 right-6 z-40 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all flex items-center justify-center focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:outline-none"
         style={{ width: 52, height: 52 }}
       >
         {open ? (
@@ -108,7 +108,7 @@ export function ChatWidget({
         <div
           role="dialog"
           aria-label={`Assistant ${siteName}`}
-          className="fixed bottom-20 right-3 left-3 sm:left-auto sm:right-6 sm:w-80 z-40 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-slate-700 flex flex-col overflow-hidden"
+          className="kit-chat-panel fixed bottom-20 right-3 left-3 sm:left-auto sm:right-6 sm:w-80 z-40 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-slate-700 flex flex-col overflow-hidden"
           style={{ maxHeight: '70vh' }}
         >
           {/* Header */}

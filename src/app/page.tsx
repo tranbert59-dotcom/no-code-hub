@@ -12,6 +12,7 @@ import { useDict } from '@/lib/i18n'
 import ContactForm from '@/components/ContactForm'
 import { CvRequestButton } from '@/components/CvRequestButton'
 import { PastilleCv } from '@/components/PastilleCv'
+import { LogoN } from '@/components/Logo'
 import type { ProductMeta } from '@/lib/products'
 
 const LINKEDIN_URL = 'https://www.linkedin.com/in/bertrand-cabanes-1965b211/'
@@ -1173,6 +1174,7 @@ export default function HomePage() {
         baseline={t.footer.baseline}
         accentColor="rgb(var(--accent))"
         contact={{ email: 'contact@no-code-hub.fr' }}
+        logo={<LogoN className="h-8 w-8" />}
       />
     </div>
   )

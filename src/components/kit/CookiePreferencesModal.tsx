@@ -27,7 +27,7 @@ const CATEGORIES: Category[] = [
   {
     key:         'marketing',
     label:       'Marketing',
-    description: "Personnalisation des contenus et publicités selon vos centres d'intérêt (non activé actuellement).",
+    description: 'Personnalisation des contenus et publicités selon vos centres d\'intérêt (non activé actuellement).',
   },
 ]
 
