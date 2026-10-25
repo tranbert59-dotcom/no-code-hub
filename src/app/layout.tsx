@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { CookieBanner } from '@/components/kit/CookieBanner'
+import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 import { ChatWidget } from '@/components/kit/ChatWidget'
 import { ScrollReveal } from '@/components/ScrollReveal'
 import { PiedMobile } from '@/components/PiedMobile'
@@ -51,6 +52,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <ScrollReveal />
           <CookieBanner />
+          {/* Ne charge rien tant que la catégorie « analytics » n'est pas acceptée. */}
+          <GoogleAnalytics />
           {/* `kit-chat` : sert à remonter la bulle au-dessus du pied de page figé du
               téléphone (globals.css) sans toucher au kit. */}
           <div className="kit-chat">

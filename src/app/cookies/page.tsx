@@ -47,9 +47,23 @@ export default function CookiesPage() {
               <p className="font-semibold text-yellow-800 dark:text-yellow-300 mb-1">Cookies analytics (optionnels)</p>
               <p className="text-fg-muted text-xs">
                 Nous permettent de comprendre comment le site est utilisé (pages vues, durée de session)
-                via une mesure d&apos;audience anonymisée.
+                via <strong>Google Analytics 4</strong>, service de Google Ireland Limited. Votre adresse IP
+                est tronquée avant d&apos;être enregistrée. <strong>Ces cookies ne sont déposés que si vous
+                les acceptez</strong> : tant que vous n&apos;avez pas accepté, aucun script Google n&apos;est
+                chargé et aucune donnée ne part. Vous pouvez revenir sur votre choix à tout moment par
+                « Gérer mes cookies ».
               </p>
-              <p className="text-xs text-fg-subtle mt-1">Durée : 13 mois</p>
+              <p className="text-xs text-fg-subtle mt-1">
+                Durée : 13 mois · Module complémentaire de désactivation :{' '}
+                <a
+                  href="https://tools.google.com/dlpage/gaoptout"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                >
+                  tools.google.com/dlpage/gaoptout
+                </a>
+              </p>
             </div>
 
             <div className="bg-card-2 rounded-xl p-4 border border-line">
