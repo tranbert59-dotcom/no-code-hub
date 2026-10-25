@@ -26,7 +26,11 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
+# `.env*.local` seul (le defaut de create-next-app) laisse passer un `.env` simple
+# et un `.env.production` : c'est exactement la ou vont l'identifiant GA et les
+# acces SMTP. On ignore tout `.env*` et on garde l'exemple, qui est fait pour etre lu.
+.env*
+!.env.example
 
 # leads du formulaire CV (persistance NDJSON, hors Git)
 /data
