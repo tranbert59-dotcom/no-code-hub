@@ -18,3 +18,17 @@ jobs:
       - run: npm run lint --if-present
       - run: npm run typecheck --if-present
       - run: npm test --if-present
+
+      # ── Audit de dépendances (25/10) ────────────────────────────────────
+      # Pourquoi ici et pas dans l'agent sécurité : le 13/10, l'agent a lancé
+      # `npm audit --offline`, qui rend 0 faute d'accès au registre, l'a écrit
+      # dans son rapport… et a noté le projet 74/100 avec 0 risque rouge alors
+      # qu'une RCE critique dormait dedans. Une CI connectée ne peut pas se
+      # noter verte toute seule.
+      # Seuil : échec sur CRITIQUE en production. Les hautes sont rapportées
+      # sans bloquer — une CI rouge en permanence finit par être ignorée.
+      - name: Audit des dépendances de production (bloque sur critique)
+        run: npm audit --omit=dev --audit-level=critical
+      - name: Rapport complet (indicatif)
+        if: always()
+        run: npm audit || true
