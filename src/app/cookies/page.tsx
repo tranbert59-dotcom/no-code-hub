@@ -64,6 +64,22 @@ export default function CookiesPage() {
                   tools.google.com/dlpage/gaoptout
                 </a>
               </p>
+              {/* Exigé par la section 7 des conditions d'utilisation de Google Analytics :
+                  un lien « bien en vue » vers la page expliquant ce que Google fait des
+                  données issues des sites qui utilisent ses services. Le lien gaoptout
+                  ci-dessus est autre chose — c'est le module de désactivation du
+                  navigateur — et ne satisfait pas cette obligation. */}
+              <p className="text-xs text-fg-subtle mt-1">
+                Ce que Google fait de ces données :{' '}
+                <a
+                  href="https://www.google.fr/policies/privacy/partners/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                >
+                  google.fr/policies/privacy/partners
+                </a>
+              </p>
             </div>
 
             <div className="bg-card-2 rounded-xl p-4 border border-line">
