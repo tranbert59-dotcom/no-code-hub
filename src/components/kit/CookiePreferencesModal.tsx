@@ -41,6 +41,19 @@ export function CookiePreferencesModal({ onClose }: Props) {
     marketing:  consent.marketing,
   })
 
+  // `useCookieConsent` démarre sur le défaut (tout refusé) et ne lit le stockage
+  // qu'à son premier effet : l'état initial ci-dessus capture donc « tout
+  // désactivé », même quand le visiteur avait accepté. Sans cette
+  // resynchronisation, la fenêtre affiche un choix faux — et « Enregistrer »
+  // le rendrait vrai en coupant la mesure sans que personne l'ait demandé.
+  // On s'arrête dès que le visiteur touche un interrupteur, pour ne pas écraser
+  // ce qu'il est en train de régler.
+  const touche = useRef(false)
+  useEffect(() => {
+    if (touche.current) return
+    setPrefs({ functional: consent.functional, analytics: consent.analytics, marketing: consent.marketing })
+  }, [consent])
+
   // Focus le bouton fermer à l'ouverture
   useEffect(() => {
     closeRef.current?.focus()
@@ -56,6 +69,7 @@ export function CookiePreferencesModal({ onClose }: Props) {
   }, [onClose])
 
   function toggle(key: 'functional' | 'analytics' | 'marketing') {
+    touche.current = true
     setPrefs((p) => ({ ...p, [key]: !p[key] }))
   }
 
