@@ -44,7 +44,10 @@ export const PRODUCTS: ProductMeta[] = [
   },
   {
     name: 'Élection 2027',
-    href: 'https://civic.no-code-hub.fr',
+    // civic.no-code-hub.fr est en test fermé (401 nginx) : y envoyer un
+    // visiteur, c'est l'envoyer sur une demande de mot de passe. On passe par
+    // la page publique de présentation, qui porte la demande d'accès.
+    href: '/elections-2027',
     status: 'test',
     invitation: true,
     stack: ['FastAPI', 'Next.js 15', 'Leaflet'],

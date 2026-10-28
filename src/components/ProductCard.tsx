@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import type { ProductMeta } from '@/lib/products'
 
 type Labels = {
@@ -9,6 +10,7 @@ type Labels = {
   soon: string
   view: string
   testView: string
+  discover: string
   protected: string
   testInvite: string
   invite: string
@@ -28,6 +30,10 @@ type Props = {
 export function ProductCard({ product, copy, labels, detailed = false }: Props) {
   const isLive = product.status === 'live'
   const isTest = product.status === 'test'
+  // Une destination interne (« /… ») passe par <Link> : un <a href="/…"> fait
+  // échouer le lint, donc le build du VPS — c'est ce qui est arrivé le 23/10.
+  // Elle ne s'ouvre pas non plus dans un onglet neuf : on reste sur le site.
+  const interne = product.href?.startsWith('/') ?? false
 
   return (
     <div
@@ -104,20 +110,34 @@ export function ProductCard({ product, copy, labels, detailed = false }: Props) 
 
       {product.href ? (
         <div className="flex items-center justify-between gap-2">
-          <a
-            href={product.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`inline-flex items-center gap-1.5 text-sm font-semibold transition-colors
+          {(() => {
+            const classe = `inline-flex items-center gap-1.5 text-sm font-semibold transition-colors
               ${isTest
                 ? 'text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300'
-                : 'text-green-700 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300'}`}
-          >
-            {isTest ? labels.testView : labels.view}
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
+                : 'text-green-700 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300'}`
+            // Interne : flèche simple. Externe : icône « ouvre un onglet », qui
+            // mentirait sur un lien restant dans le site.
+            const icone = interne ? (
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            ) : (
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            )
+            return interne ? (
+              <Link href={product.href!} className={classe}>
+                {labels.discover}
+                {icone}
+              </Link>
+            ) : (
+              <a href={product.href!} target="_blank" rel="noopener noreferrer" className={classe}>
+                {isTest ? labels.testView : labels.view}
+                {icone}
+              </a>
+            )
+          })()}
           {isTest && product.invitation ? (
             <a
               href={`mailto:contact@no-code-hub.fr?subject=${encodeURIComponent(`${labels.inviteSubject} — ${product.name}`)}`}
